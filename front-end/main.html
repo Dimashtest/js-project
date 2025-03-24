@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-no-repeat bg-top z-10 bg-white bg-[url(./img/indexbg.png)]">
+    <header
+        class="fixed top-0 left-0 w-full bg-black/60 backdrop-blur-md px-[150px] justify-between max-w-full mx-auto py-4 flex items-center text-white z-20">
+
+        <div class="flex items-center">
+            <img src="./logos/logo-appartment.png" alt="Логотип" class="h-10">
+            <span class="text-lg font-semibold">RENT<span class="text-blue-500">КРЫМ</span></span>
+            <div class="ml-4 text-sm">
+                <p>Экспресс-подбор</p>
+                <p>жилья по самым низким ценам</p>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex gap-6 text-lg font-medium">
+            <a href="./index.html" class="hover:text-blue-400 transition">Главная</a>
+            <a href="./main.html" class="hover:text-blue-400 transition">Объявления</a>
+            <a href="#" class="hover:text-blue-400 transition">Контакты</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <a href="#" class="text-lg">8 (800) 500-56-55</a>
+            <a href="#" class="text-blue-400"><img src="./logos/telegram.png" alt=""></a>
+            <a href="#" class="text-green-400"><img src="./logos/whatsapp.png" alt=""></a>
+            <a href="#" class="text-green-400"><img src="./logos/viber.png" alt=""></a>
+        </div>
+
+    </header>
+    <section>
+        <div class="flex justify-between">
+            <img class="left-0" src="./img/index2.png" alt="">
+            <div class="relative right-0 bg-blue-500 text-white h-[450px] w-full">
+                <div class="absolute inset-y-0 left-[-102px] h-1/2 w-[102px] bg-blue-500"
+                    style="clip-path: polygon(100% 0, 0 0, 100% 100%);"></div>
+                <div class="absolute inset-y-1/2 left-[-102px] h-1/2 w-[102px] bg-blue-500"
+                    style="clip-path: polygon(100% 100%, 0 100%, 100% -2%);"></div>
+                <div class="flex flex-col gap-7 mt-[110px]">
+                    <p class="text-[35px] ml-[90px] underline underline-offset-[9px]">Нам доверили свой отдых уже</p>
+                    <p class="text-[40px] ml-[150px]">45 632 <span class="text-[30px]"> Человека</span></p>
+                    <p class="text-[35px] ml-[150px] underline underline-offset-[9px]">Готовы к нам присоединится? :)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="bg-[#212121] h-[240px] w-full items-center justify-center absolute flex gap-[50px]">
+
+            <div class="flex items-center gap-4">
+                <img src="./logos/logo-appartment.png" alt="Логотип" class="h-10">
+                <span class="text-[29px] font-semibold text-white">RENT<span class="text-blue-500">КРЫМ</span></span>
+            </div>
+
+            <div class="text-white flex flex-col justify-center text-[16px] w-[300px] gap-2">
+                <span>Экспресс-подбор</span>
+                <span>Жилья по самым низким ценам</span>
+                <span class="mt-[10px]">Работаем с 2008 года</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center text-white gap-5 w-[300px] text-[19px]">
+                <p>Телефон: 8 (800) 500-56-55</p>
+                <div class="flex gap-5">
+                    <a href="#"><img src="./logos/telegram.png" alt="Telegram"></a>
+                    <a href="#"><img src="./logos/whatsapp.png" alt="WhatsApp"></a>
+                    <a href="#"><img src="./logos/viber.png" alt="Viber"></a>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-start text-white w-[300px] gap-5 text-[19px]">
+                <p>Принимаем оплату:</p>
+                <div class="flex gap-5">
+                    <a href="#"><img src="./logos/visa.png" alt=""></a>
+                    <a href="#"><img src="./logos/maestro.png" alt=""></a>
+                    <a href="#"><img src="./logos/mastercard.png" alt=""></a>
+                    <a href="#"><img src="./logos/mir.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

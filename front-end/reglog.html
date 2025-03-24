@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма входа</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./reglog.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="flex justify-center items-center h-screen bg-cover bg-no-repeat bg-center bg-[url(./img/house.jpg)]">
+
+    <div class="bg-white shadow-lg rounded-lg flex overflow-hidden w-full max-w-3xl">
+        <div class="w-1/2 bg-blue-500 flex flex-col px-10 gap-3 justify-center items-center">
+            <h2 class="text-white text-2xl font-bold">Добро пожаловать!</h2>
+            <h1 class="text-white text-lg indent-6 text-justify">
+                Для бронирования (аренд) отелей, квартир, домов, гостевых домов и частных секторов вам нужно будет 
+                <span class="cursor-pointer linkRegister text-orange-300 hover:underline">зарегистрироваться</span>, либо зайти в свой аккаунт, если он у вас есть, то 
+                <span class="cursor-pointer linkLogin text-orange-300 hover:underline">залогиньтесь</span>!
+                Либо вы можете зайти как
+                <span class="cursor-pointer guest text-orange-300 hover:underline"> гость</span>. 
+            </h1>
+        </div>
+
+        <div class="w-1/2 p-8">
+            <div class="registerForm">
+                <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Регистрация</h2>
+                <form class="flex flex-col gap-5">
+                    <div>
+                        <label class="block text-gray-700">Имя</label>
+                        <input type="text" required class="w-full mt-1 px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-blue-500 transition" placeholder="Введите имя">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700">Почта</label>
+                        <input type="email" required class="w-full mt-1 px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-blue-500 transition" placeholder="Введите почту">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700">Пароль</label>
+                        <input type="password" required class="w-full mt-1 px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-blue-500 transition" placeholder="Введите пароль">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700">Подтвердите пароль</label>
+                        <input type="password" required class="w-full mt-1 px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-blue-500 transition" placeholder="Повторите пароль">
+                    </div>
+                    <button class="w-full bg-blue-500 text-white font-semibold py-2 rounded-lg shadow-md hover:bg-blue-600 transition">
+                        Зарегистрироваться
+                    </button>
+                </form>
+                <div class="text-center gap-5 flex flex-col">
+                    <span class="mt-4 text-gray-500">или</span>
+                    <button class="w-full toggleLogin bg-blue-500 text-white font-semibold py-2 rounded-lg shadow-md hover:bg-blue-600 transition">
+                        Войти
+                    </button>
+                </div>            
+            </div>
+            <div class="hidden loginForm">
+                <h2 class="text-2xl font-semibold text-gray-700 text-center mb-6">Вход</h2>
+                <form class="flex flex-col gap-5">
+                    <div>
+                        <label class="block text-gray-700">Почта</label>
+                        <input type="email" required class="w-full mt-1 px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-blue-500 transition" placeholder="Введите почту">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700">Пароль</label>
+                        <input type="password" required class="w-full mt-1 px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-blue-500 transition" placeholder="Введите пароль">
+                    </div>
+                    <button class="w-full bg-blue-500 text-white font-semibold py-2 rounded-lg shadow-md hover:bg-blue-600 transition">
+                        Войти
+                    </button>
+                </form>
+                <div class="text-center gap-5 flex flex-col">
+                    <span class="mt-4 text-gray-500">или</span>
+                    <button class="w-full toggleRegister bg-blue-500 text-white font-semibold py-2 rounded-lg shadow-md hover:bg-blue-600 transition">
+                        Регистрация
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

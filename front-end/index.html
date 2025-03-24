@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script.js" defer></script>
+</head>
+<!--class="-->
+
+<body class="bg-no-repeat bg-top z-10 bg-white bg-[url(./img/indexbg.png)]">
+    <header
+        class="fixed top-0 left-0 w-full bg-black/60 backdrop-blur-md px-[150px] justify-between max-w-full mx-auto py-4 flex items-center text-white z-20">
+
+        <div class="flex items-center">
+            <img src="./logos/logo-appartment.png" alt="Логотип" class="h-10">
+            <span class="text-lg font-semibold">RENT<span class="text-blue-500">КРЫМ</span></span>
+            <div class="ml-4 text-sm">
+                <p>Экспресс-подбор</p>
+                <p>жилья по самым низким ценам</p>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex gap-6 text-lg font-medium">
+            <a href="./index.html" class="hover:text-blue-400 transition">Главная</a>
+            <a href="./main.html" class="hover:text-blue-400 transition">Объявления</a>
+            <a href="#" class="hover:text-blue-400 transition">Контакты</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <a href="#" class="text-lg">8 (800) 500-56-55</a>
+            <a href="#" class="text-blue-400"><img src="./logos/telegram.png" alt=""></a>
+            <a href="#" class="text-green-400"><img src="./logos/whatsapp.png" alt=""></a>
+            <a href="#" class="text-green-400"><img src="./logos/viber.png" alt=""></a>
+        </div>
+
+    </header>
+
+
+
+    <section
+        class="h-full flex flex-col mt-[170px] justify-center text-white items-center gap-3 text-center px-[150px] z-20">
+        <div class="flex flex-col">
+            <h1 class="text-4xl font-bold">ЖИЛЬЕ НА ЮЖНОМ БЕРЕГУ КРЫМА ПО САМЫМ ЛУЧШИМ ЦЕНАМ</h1>
+            <p class="text-lg mt-5">Более 150 000 объявлений – комиссия 0%</p>
+        </div>
+        <div class="mt-6 bg-black/50 p-6 rounded-lg shadow-lg flex flex-wrap gap-4 justify-center ">
+            <input type="text" placeholder="Город"
+                class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="text" id="check-in"
+                class="px-4 rounded-md bg-white text-black w-40 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Выбор даты" onclick="this.type='date'">
+            <span class="absolute left-3 top-3 text-gray-500 pointer-events-none"></span>
+            <input type="text" id="check-out"
+                class="px-4 rounded-md bg-white text-black w-40 border shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Обратная дата" onclick="this.type='date'">
+            <span class="absolute left-3 top-3 text-gray-500 pointer-events-none"></span>
+
+            <select id="guestsSelectOne"
+                class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
+                <option value="" disabled selected>Гости</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <select id="guestsSelectTwo"
+                class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
+                <option value="" disabled selected>Номер</option>
+                <option value="1">1 комнатная</option>
+                <option value="2">2 комнатная</option>
+                <option value="3">3 комнатная</option>
+                <option value="4">4 комнатная</option>
+                <option value="5">5 комнатная</option>
+            </select>
+            <button class="bg-blue-500 text-white px-6 py-2 rounded-md shadow-md hover:bg-blue-600 transition">Найти
+                жилье</button>
+        </div>
+        <div class="absolute inset-0 h-[532px] bg-black opacity-50 z-[-1]"></div>
+    </section>
+    <section>
+        <div class="relative h-40 overflow-hidden mt-[-10px]">
+            <div
+                class="absolute bottom-0 left-0 w-0 h-0 border-r-[50vw] border-r-transparent border-b-[160px] border-b-blue-500">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-0 h-0 border-l-[50vw] border-l-transparent border-b-[160px] border-b-blue-500">
+            </div>
+        </div>
+
+        <div
+            class=" bg-blue-500 text-white h-[415px] w-full flex justify-center items-center p-7 shadow-[0px_30px_12px_rgba(0,0,0,0.3)] ">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-[40px] text-center ">
+                <div class="flex flex-col gap-5 w-[400px]">
+                    <img src="./logos/commission.png" class="mx-auto mb-4" alt="Icon">
+                    <h3 class="text-lg font-bold">Комиссия - 0%</h3>
+                    <p>Эксклюзивно! Только при бронировании у нас вы можете быть уверены, что платите ТОЛЬКО
+                        собственнику</p>
+                </div>
+                <div class="flex flex-col gap-5 w-[400px]">
+                    <img src="./logos/reliability.png" class="mx-auto mb-4" alt="Icon">
+                    <h3 class="text-lg font-bold">Надежно 100%</h3>
+                    <p>Мы проверяем каждое объявление и гарантируем никаих «черных» маклеров</p>
+                </div>
+                <div class="flex flex-col gap-5 w-[400px]">
+                    <img src="./logos/sale.png" class="mx-auto mb-4" alt="Icon">
+                    <h3 class="text-lg font-bold">Гарантия низкой цены</h3>
+                    <p>Мы готовы предложить вам объекты по самым низким ценам в Ялте!</p>
+                </div>
+            </div>
+    </section>
+
+    <section>
+        <div class=" h-[350px] overflow-hidden mt-[75px]">
+            <div class="flex flex-col gap-[35px] justify-center items-center">
+                <div class="flex gap-[35px]"> <!-- надо покарасить кнопки -->
+                    <button
+                        class="bg-blue-500 text-white px-[70px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Отели</button>
+                    <button
+                        class="bg-gray-300 text-black px-[40px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Квартиры</button>
+                    <button
+                        class="bg-gray-300 text-black px-[80px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Дома</button>
+                    <button
+                        class="bg-gray-300 text-black px-[80px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Гостевые
+                        дома</button>
+                    <button
+                        class="bg-gray-300 text-black px-[80px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Частный
+                        сектор</button>
+                </div>
+                <div class="bg-blue-500 w-[1400px] h-1"></div>
+                <div class="text-black text-[20px] flex gap-[100px] w-[1200px] justify-start">
+                    <ul class="flex flex-col gap-5">
+                        <li class="flex gap-6"><span class="text-gray-500">01</span> Ялта</li>
+                        <li class="flex gap-6"><span class="text-gray-500">02</span> Гурфуз</li>
+                        <li class="flex gap-6"><span class="text-gray-500">03</span> Гаспра</li>
+                    </ul>
+                    <ul class="flex flex-col gap-5">
+                        <li class="flex gap-6"><span class="text-gray-500">04</span> Массандра</li>
+                        <li class="flex gap-6"><span class="text-gray-500">05</span> Никита</li>
+                        <li class="flex gap-6"><span class="text-gray-500">06</span> Ливадия</li>
+                    </ul>
+                    <ul class="flex flex-col gap-5">
+                        <li class="flex gap-6"><span class="text-gray-500">07</span> Виноградное</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="relative h-[350px] overflow-hidden bg-gray-200">
+            <div class="flex px-[250px] py-[60px]">
+                <p class="text-gray-500 text-[14px]">Равным образом постоянное информационно-пропагандистское
+                    обеспечение нашей деятельности позволяет
+                    оценить значение новых предложений. Идейные соображения высшего порядка, а также сложившаяся
+                    структура организации позволяет оценить значение новых предложений. Таким образом укрепление и
+                    развитие структуры играет важную роль в формировании направлений прогрессивного развития. С другой
+                    стороны реализация намеченных плановых заданий способствует подготовки и реализации соответствующий
+                    условий активизации. Разнообразный и богатый опыт консультация с широким активом в значительной
+                    степени обуславливает создание дальнейших направлений развития. Товарищи! постоянное
+                    информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и
+                    модернизации соответствующий условий активизации. Не следует, однако забывать, что новая модель
+                    организационной деятельности представляет собой интересный эксперимент проверки существенных
+                    финансовых и административных условий. Не следует, однако забывать, что сложившаяся структура
+                    организации позволяет оценить значение форм развития.Разнообразный и богатый опыт укрепление и
+                    развитие структуры требуют определения и уточнения соответствующий условий активизации. Задача
+                    организации, в особенности же дальнейшее развитие различных форм деятельности обеспечивает широкому
+                    кругу (специалистов) участие в формировании модели развития. Таким образом укрепление и развитие
+                    структуры играет важную роль в формировании направлений прогрессивного развития. С другой стороны
+                    реализация намеченных плановых заданий способствует подготовки и реализации соответствующий условий
+                    активизации. Разнообразный и богатый опыт консультация с широким активом в значительной степени
+                    обуславливает создание дальнейших направлений развития.</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="flex justify-between">
+            <img class="left-0" src="./img/index2.png" alt="">
+            <div class="relative right-0 bg-blue-500 text-white h-[450px] w-full">
+                <div class="absolute inset-y-0 left-[-102px] h-1/2 w-[102px] bg-blue-500"
+                    style="clip-path: polygon(100% 0, 0 0, 100% 100%);"></div>
+                <div class="absolute inset-y-1/2 left-[-102px] h-1/2 w-[102px] bg-blue-500"
+                    style="clip-path: polygon(100% 100%, 0 100%, 100% -2%);"></div>
+                <div class="flex flex-col gap-7 mt-[110px]">
+                    <p class="text-[35px] ml-[90px] underline underline-offset-[9px]">Нам доверили свой отдых уже</p>
+                    <p class="text-[40px] ml-[150px]">45 632 <span class="text-[30px]"> Человека</span></p>
+                    <p class="text-[35px] ml-[150px] underline underline-offset-[9px]">Готовы к нам присоединится? :)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="bg-[#212121] h-[240px] w-full items-center justify-center absolute flex gap-[50px]">
+
+            <div class="flex items-center gap-4">
+                <img src="./logos/logo-appartment.png" alt="Логотип" class="h-10">
+                <span class="text-[29px] font-semibold text-white">RENT<span class="text-blue-500">КРЫМ</span></span>
+            </div>
+
+            <div class="text-white flex flex-col justify-center text-[16px] w-[300px] gap-2">
+                <span>Экспресс-подбор</span>
+                <span>Жилья по самым низким ценам</span>
+                <span class="mt-[10px]">Работаем с 2008 года</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center text-white gap-5 w-[300px] text-[19px]">
+                <p>Телефон: 8 (800) 500-56-55</p>
+                <div class="flex gap-5">
+                    <a href="#"><img src="./logos/telegram.png" alt="Telegram"></a>
+                    <a href="#"><img src="./logos/whatsapp.png" alt="WhatsApp"></a>
+                    <a href="#"><img src="./logos/viber.png" alt="Viber"></a>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-start text-white w-[300px] gap-5 text-[19px]">
+                <p>Принимаем оплату:</p>
+                <div class="flex gap-5">
+                    <a href="#"><img src="./logos/visa.png" alt=""></a>
+                    <a href="#"><img src="./logos/maestro.png" alt=""></a>
+                    <a href="#"><img src="./logos/mastercard.png" alt=""></a>
+                    <a href="#"><img src="./logos/mir.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
