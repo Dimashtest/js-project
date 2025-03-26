@@ -5,6 +5,7 @@ const toggleRegister = document.querySelector(".toggleRegister")
 const linkRegister = document.querySelector(".linkRegister")
 const linkLogin = document.querySelector(".linkLogin")
 const registerBtn = document.querySelector(".register-btn")
+const loginBtn = document.querySelector(".login-btn")
 
 document.querySelector('.guest').addEventListener('click', () => {
     Swal.fire({
