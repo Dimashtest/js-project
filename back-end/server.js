@@ -35,3 +35,9 @@ const start = async () => {
 }
 
 start()
+
+app.use('/intheroom', require('./routes/intheroomRoutes'));
+app.use('/intheteretory', require('./routes/intheteretoryRoutes'));
+app.use('/near', require('./routes/nearRoutes'));
+app.use('/rules', require('./routes/rulesRoutes'));
+app.use('/service', require('./routes/serviceRoutes'));

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="rooms-container"></div>
+
+    <script>
+      async function fetchRooms() {
+        try {
+          const response = await fetch('http://localhost:3000/api/intherooms');
+          const rooms = await response.json();
+    
+          const container = document.getElementById('rooms-container');
+          container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
+    
+          rooms.forEach(room => {
+            const roomDiv = document.createElement('div');
+            roomDiv.innerHTML = `<h3>Комната ID: ${room.intheroom_id}</h3>`;
+    
+            // Выводим только те удобства, которые есть в комнате
+            for (const amenity in room.amenities) {
+              const p = document.createElement('p');
+              p.textContent = room.amenities[amenity];
+              roomDiv.appendChild(p);
+            }
+    
+            container.appendChild(roomDiv);
+          });
+        } catch (error) {
+          console.error('Ошибка при получении данных:', error);
+        }
+      }
+    
+      fetchRooms();
+    </script>
+</body>
+</html>
