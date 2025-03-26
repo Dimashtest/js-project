@@ -4,6 +4,7 @@ const toggleLogin = document.querySelector(".toggleLogin")
 const toggleRegister = document.querySelector(".toggleRegister")
 const linkRegister = document.querySelector(".linkRegister")
 const linkLogin = document.querySelector(".linkLogin")
+const registerBtn = document.querySelector(".register-btn")
 
 document.querySelector('.guest').addEventListener('click', () => {
     Swal.fire({
@@ -15,6 +16,16 @@ document.querySelector('.guest').addEventListener('click', () => {
     setTimeout(() => {
         document.location.href = './index.html'
     }, 2000)
+})
+
+document.querySelector('.register-btn').addEventListener('click' , () => {
+    
+    Swal.fire({
+        title: "Отлично!",
+        text: `Вы успешно зарегистрировались! Теперь войдите в свой аккаунт`,
+        icon: "success",
+        heightAuto: false
+    })
 })
 
 function showLoginForm() {
