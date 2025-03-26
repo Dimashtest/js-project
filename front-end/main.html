@@ -33,6 +33,802 @@
         </div>
 
     </header>
+
+
+
+    <section
+        class="h-full flex flex-col mt-[170px] justify-center text-white items-center gap-3 text-center px-[150px] z-20">
+        <div class="flex flex-col">
+            <h1 class="text-4xl font-bold">ЖИЛЬЕ НА ЮЖНОМ БЕРЕГУ КРЫМА ПО САМЫМ ЛУЧШИМ ЦЕНАМ</h1>
+            <p class="text-lg mt-5">Более 150 000 объявлений – комиссия 0%</p>
+        </div>
+        <div class="mt-6 bg-black/50 p-6 rounded-lg shadow-lg flex flex-wrap gap-4 justify-center ">
+            <input type="text" placeholder="Город"
+                class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="text" id="check-in"
+                class="px-4 rounded-md bg-white text-black w-40 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Выбор даты" onclick="this.type='date'">
+            <span class="absolute left-3 top-3 text-gray-500 pointer-events-none"></span>
+            <input type="text" id="check-out"
+                class="px-4 rounded-md bg-white text-black w-40 border shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Обратная дата" onclick="this.type='date'">
+            <span class="absolute left-3 top-3 text-gray-500 pointer-events-none"></span>
+
+            <select id="guestsSelectOne"
+                class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
+                <option value="" disabled selected>Гости</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <select id="guestsSelectTwo"
+                class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
+                <option value="" disabled selected>Номер</option>
+                <option value="1">1 комнатная</option>
+                <option value="2">2 комнатная</option>
+                <option value="3">3 комнатная</option>
+                <option value="4">4 комнатная</option>
+                <option value="5">5 комнатная</option>
+            </select>
+            <button class="bg-blue-500 text-white px-6 py-2 rounded-md shadow-md hover:bg-blue-600 transition">Найти
+                жилье</button>
+        </div>
+        <div class="absolute inset-0 h-[532px] bg-black opacity-50 z-[-1]"></div>
+    </section>
+    <section>
+        <div class="relative h-40 overflow-hidden mt-[-10px]">
+            <div
+                class="absolute bottom-0 left-0 w-0 h-0 border-r-[50vw] border-r-transparent border-b-[160px] border-b-blue-500">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-0 h-0 border-l-[50vw] border-l-transparent border-b-[160px] border-b-blue-500">
+            </div>
+        </div>
+
+        <div
+            class=" bg-blue-500 text-white h-[415px] w-full flex justify-center items-center p-7 shadow-[0px_30px_12px_rgba(0,0,0,0.3)] ">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-[40px] text-center ">
+                <div class="flex flex-col gap-5 w-[400px]">
+                    <img src="./logos/commission.png" class="mx-auto mb-4" alt="Icon">
+                    <h3 class="text-lg font-bold">Комиссия - 0%</h3>
+                    <p>Эксклюзивно! Только при бронировании у нас вы можете быть уверены, что платите ТОЛЬКО
+                        собственнику</p>
+                </div>
+                <div class="flex flex-col gap-5 w-[400px]">
+                    <img src="./logos/reliability.png" class="mx-auto mb-4" alt="Icon">
+                    <h3 class="text-lg font-bold">Надежно 100%</h3>
+                    <p>Мы проверяем каждое объявление и гарантируем никаих «черных» маклеров</p>
+                </div>
+                <div class="flex flex-col gap-5 w-[400px]">
+                    <img src="./logos/sale.png" class="mx-auto mb-4" alt="Icon">
+                    <h3 class="text-lg font-bold">Гарантия низкой цены</h3>
+                    <p>Мы готовы предложить вам объекты по самым низким ценам в Ялте!</p>
+                </div>
+            </div>
+    </section>
+    <section class="flex gap-6 p-6 mt-[20px]"> 
+        <div class="w-1/4 flex flex-col gap-4">
+    <!-- Блок с фильтрами -->
+            <div class="p-4 bg-white shadow-lg rounded w-[250px] min-w-[500px] max-w-[250px] ml-[100px]">
+                <h3 class="text-lg font-semibold mb-3 text-xl">Фильтры</h3>
+                <div class="flex flex-col gap-4">
+                    <div>
+                        <label for="price" class="block text-sm font-medium text-gray-700">Стоимость</label>
+                        <input type="range" id="price" name="price" min="0" max="10000" step="100" class="w-full">
+                        <span class="text-sm text-gray-500">От 0 до 10000 ₽</span>
+                    </div>
+    
+                    <div>
+                        <label class="block text-sm font-medium text-black text-xl mb-[10px]">Варианты размещения</label>
+                        <div class="flex flex-col">
+                            <div class="gap-4">
+                                <div class="items-center p-1 flex justify-between">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Отели</span>
+                                    </label>
+                                    <span class="text-gray-400 text-sm">35</span>
+                                </div>
+                                
+                                <div class="items-center p-1 flex justify-between">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Квартиры</span>
+                                      </label>
+                                      <span class="text-gray-400 text-sm">110</span>
+                                </div>
+                                <div class="items-center p-1 flex justify-between">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Дома</span>
+                                      </label>
+                                      <span class="text-gray-400 text-sm">240</span>
+                                </div>
+                                <div class="items-center p-1 flex justify-between">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Гостевые дома</span>
+                                      </label>
+                                      <span class="text-gray-400 text-sm">87</span>
+                                </div>
+                                <div class="items-center p-1 flex justify-between">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Частный сектор</span>
+                                      </label>
+                                      <span class="text-gray-400 text-sm">65</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <div>
+                            <label for="rooms" class="block text-sm font-medium text-black text-xl mb-[10px]">Количество комнат</label>
+                            <select id="rooms" name="rooms" class="w-full border rounded p-2">
+                                <option value="" selected disabled hidden>Любое</option>
+                                <option value="1">1 комната</option>
+                                <option value="2">2 комнаты</option>
+                                <option value="3">3 комнаты</option>
+                                <option value="4">4 комнаты</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+    
+    
+                    <div>
+                        <label for="rooms" class="block text-sm font-medium text-gray-700">Количество двухспальных кроватей</label>
+                        <select id="rooms" name="rooms" class="w-full border rounded p-2">
+                            <option value="" selected disabled hidden>Выберите</option>
+                            <option value="1">1 кровать</option>
+                            <option value="2">2 кровати</option>
+                            <option value="3">3 кровати</option>
+                            <option value="4">4 кровати</option>
+                        </select>
+                    </div>
+    
+                    <div>
+                        <label for="rooms" class="block text-sm font-medium text-gray-700">Количество раздельных кроватей</label>
+                        <select id="rooms" name="rooms" class="w-full border rounded p-2">
+                            <option value="" selected disabled hidden>Выберите</option>
+                            <option value="1">1 кровать</option>
+                            <option value="2">2 кровати</option>
+                            <option value="3">3 кровати</option>
+                            <option value="4">4 кровати</option>
+                        </select>
+                    </div>
+    
+                    <div>
+                        <label for="rooms" class="block text-sm font-medium text-black text-xl mb-[10px]">Расстояние до моря</label>
+                        <select id="rooms" name="rooms" class="w-full border rounded p-2">
+                            <option value="" selected disabled hidden>Выберите</option>
+                            <option value="1">1 береговая линия</option>
+                            <option value="2">2 береговая линия</option>
+                            <option value="3">3 береговая линия</option>
+                            <option value="4">4 береговая линия</option>
+                            <option value="5">200 метров до пляжа</option>
+                            <option value="6">300 метров до пляжа</option>
+                        </select>
+                    </div>
+    
+                    <div>
+                        <label class="block text-sm font-medium text-black text-xl mb-[10px]">В помещении</label>
+                        <div class="flex flex-col">
+                            <div class="gap-4">
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Интернет Wi-Fi</span>
+                                    </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Кондиционер</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Холодильник</span>
+                                    </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Стиральная машина</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Кухня</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Балкон / Лоджия</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Джакузи</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Сауна / Баня</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Терраса</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Микроволновка</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Фен</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Утюг с гладильной доской</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Телевизор</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Электрочайник</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Посуда и принадлежности</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Полотенца</span>
+                                      </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <label class="block text-sm font-medium text-black text-xl mb-[10px]">На территории</label>
+                        <div class="flex flex-col">
+                            <div class="gap-4">
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Парковка</span>
+                                    </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Беседка</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Мангал</span>
+                                    </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Мебель</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Бассейн</span>
+                                      </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <label class="block text-sm font-medium text-black text-xl mb-[10px]">Рядом</label>
+                        <div class="flex flex-col">
+                            <div class="gap-4">
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Ночной клуб</span>
+                                    </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">SPA / Оздоровление</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Бар / Ресторан</span>
+                                    </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Жилье в частном секторе</span>
+                                      </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <label class="block text-sm font-medium text-black text-xl mb-[10px]">Правила дома</label>
+                        <div class="flex flex-col">
+                            <div class="gap-4">
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Курение разрешено</span>
+                                    </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Вечеринки разрешены</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Можно с животными</span>
+                                    </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Самоизоляция разрешена</span>
+                                      </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <label class="block text-sm font-medium text-black text-xl mb-[10px]">Удобства и услуги</label>
+                        <div class="flex flex-col">
+                            <div class="gap-4">
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Бесконтактное заселение</span>
+                                    </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Трансфер</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Круглосуточная стойка регистрации</span>
+                                    </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Отчетные документы</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Лифт</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Доступ для инвалидов</span>
+                                      </label>
+                                </div>
+                                <div class="items-center p-1">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="checkbox" class="peer hidden">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        </div>
+                                        <span class="ml-2 text-gray-700">Быстрая связь</span>
+                                      </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mt-4 w-full py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded">Применить фильтры</button>
+                    <button class=" w-full py-2 border-2 border-blue-500 text-blue-500 rounded">Сбросить фильтры</button>
+                </div>
+            </div>
+        </div>
+    <!-- Блок с квартирами -->
+        <div class="w-3/4 flex flex-col gap-4">
+            <div class="flex bg-white rounded-lg shadow-lg gap-6 w-[800px] ml-[300px]">
+                <img src="./img/Flat (1).svg" alt="">
+                <div class="flex flex-col justify-between p-7">
+                    <div>
+                        <div class="flex gap-1 mb-2">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                        </div>
+                        <h3 class="text-lg font-semibold">3-комнатная квартира</h3>
+                        <p class="text-gray-500">700 м до моря</p>
+                        <p class="text-gray-600">Ливадия, Виноградная ул, 6А</p>
+                        <p class="text-blue-500 text-sm mt-2">32м2 | 4 гостя | 1 спальная | 1 кровать</p>
+                        <div class="flex gap-4 mt-2">
+                            <img src="./img/smart-refrigerator.svg" alt="Холодильник">
+                            <img src="./img/air-conditioner.svg" alt="Кондиционер">
+                            <img src="./img/parking.svg" alt="Парковка">
+                            <img src="./img/wifi-signal.svg" alt="Wi-Fi">
+                            <img src="./img/+ 4.svg" alt="Еще">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center p-5">
+                    <p class="text-gray-800 font-bold text-3xl">3000 ₽</p>
+                    <p class="text-gray-500">Сутки</p>
+                    <button class="border-2 border-blue-500 text-blue-500 px-4 py-2 mt-3 rounded w-36">
+                        Смотреть
+                    </button>
+                    <button class="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-4 py-2 mt-3 rounded w-36">
+                        Забронировать
+                    </button>
+                </div>
+            </div>
+    
+            <div class="flex bg-white rounded-lg shadow-lg gap-6 w-[800px] ml-[300px]">
+                <img src="./img/Flat (2).svg" alt="">
+                <div class="flex flex-col justify-between p-6">
+                    <div>
+                        <div class="flex gap-1 mb-2">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                        </div>
+                        <h3 class="text-lg font-semibold">3-комнатная квартира</h3>
+                        <p class="text-gray-500">700 м до моря</p>
+                        <p class="text-gray-600">Ливадия, Виноградная ул, 6А</p>
+                        <p class="text-blue-500 text-sm mt-2">32м2 | 4 гостя | 1 спальная | 1 кровать</p>
+                        <div class="flex gap-4 mt-2">
+                            <img src="./img/smart-refrigerator.svg" alt="Холодильник">
+                            <img src="./img/air-conditioner.svg" alt="Кондиционер">
+                            <img src="./img/parking.svg" alt="Парковка">
+                            <img src="./img/wifi-signal.svg" alt="Wi-Fi">
+                            <img src="./img/+ 4.svg" alt="Еще">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center p-5">
+                    <p class="text-gray-800 font-bold text-3xl">3000 ₽</p>
+                    <p class="text-gray-500">Сутки</p>
+                    <button class="border-2 border-blue-500 text-blue-500 px-4 py-2 mt-3 rounded w-36">
+                        Смотреть
+                    </button>
+                    <button class="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-4 py-2 mt-3 rounded w-36">
+                        Забронировать
+                    </button>
+                </div>
+            </div>
+    
+            <div class="flex bg-white rounded-lg shadow-lg gap-6 w-[800px] ml-[300px]">
+                <img src="./img/Flat (3).svg" alt="">
+                <div class="flex flex-col justify-between p-6">
+                    <div>
+                        <div class="flex gap-1 mb-2">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                        </div>
+                        <h3 class="text-lg font-semibold">3-комнатная квартира</h3>
+                        <p class="text-gray-500">700 м до моря</p>
+                        <p class="text-gray-600">Ливадия, Виноградная ул, 6А</p>
+                        <p class="text-blue-500 text-sm mt-2">32м2 | 4 гостя | 1 спальная | 1 кровать</p>
+                        <div class="flex gap-4 mt-2">
+                            <img src="./img/smart-refrigerator.svg" alt="Холодильник">
+                            <img src="./img/air-conditioner.svg" alt="Кондиционер">
+                            <img src="./img/parking.svg" alt="Парковка">
+                            <img src="./img/wifi-signal.svg" alt="Wi-Fi">
+                            <img src="./img/+ 4.svg" alt="Еще">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center p-5">
+                    <p class="text-gray-800 font-bold text-3xl">3000 ₽</p>
+                    <p class="text-gray-500">Сутки</p>
+                    <button class="border-2 border-blue-500 text-blue-500 px-4 py-2 mt-3 rounded w-36">
+                        Смотреть
+                    </button>
+                    <button class="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-4 py-2 mt-3 rounded w-36">
+                        Забронировать
+                    </button>
+                </div>
+            </div>
+    
+            <div class="flex bg-white rounded-lg shadow-lg gap-6 w-[800px] ml-[300px]">
+                <img src="./img/Flat (4).svg" alt="">
+                <div class="flex flex-col justify-between p-6">
+                    <div>
+                        <div class="flex gap-1 mb-2">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                        </div>
+                        <h3 class="text-lg font-semibold">3-комнатная квартира</h3>
+                        <p class="text-gray-500">700 м до моря</p>
+                        <p class="text-gray-600">Ливадия, Виноградная ул, 6А</p>
+                        <p class="text-blue-500 text-sm mt-2">32м2 | 4 гостя | 1 спальная | 1 кровать</p>
+                        <div class="flex gap-4 mt-2">
+                            <img src="./img/smart-refrigerator.svg" alt="Холодильник">
+                            <img src="./img/air-conditioner.svg" alt="Кондиционер">
+                            <img src="./img/parking.svg" alt="Парковка">
+                            <img src="./img/wifi-signal.svg" alt="Wi-Fi">
+                            <img src="./img/+ 4.svg" alt="Еще">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center p-5">
+                    <p class="text-gray-800 font-bold text-3xl">3000 ₽</p>
+                    <p class="text-gray-500">Сутки</p>
+                    <button class="border-2 border-blue-500 text-blue-500 px-4 py-2 mt-3 rounded w-36">
+                        Смотреть
+                    </button>
+                    <button class="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-4 py-2 mt-3 rounded w-36">
+                        Забронировать
+                    </button>
+                </div>
+            </div>
+    
+            <div class="flex bg-white rounded-lg shadow-lg gap-6 w-[800px] ml-[300px]">
+                <img src="./img/Flat (2).svg" alt="">
+                <div class="flex flex-col justify-between p-6">
+                    <div>
+                        <div class="flex gap-1 mb-2">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                        </div>
+                        <h3 class="text-lg font-semibold">3-комнатная квартира</h3>
+                        <p class="text-gray-500">700 м до моря</p>
+                        <p class="text-gray-600">Ливадия, Виноградная ул, 6А</p>
+                        <p class="text-blue-500 text-sm mt-2">32м2 | 4 гостя | 1 спальная | 1 кровать</p>
+                        <div class="flex gap-4 mt-2">
+                            <img src="./img/smart-refrigerator.svg" alt="Холодильник">
+                            <img src="./img/air-conditioner.svg" alt="Кондиционер">
+                            <img src="./img/wifi-signal.svg" alt="Wi-Fi">
+                            <img src="./img/+ 4.svg" alt="Еще">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center p-5">
+                    <p class="text-gray-800 font-bold text-3xl">3000 ₽</p>
+                    <p class="text-gray-500">Сутки</p>
+                    <button class="border-2 border-blue-500 text-blue-500 px-4 py-2 mt-3 rounded w-36">
+                        Смотреть
+                    </button>
+                    <button class="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-4 py-2 mt-3 rounded w-36">
+                        Забронировать
+                    </button>
+                </div>
+            </div>
+    
+            <div class="flex bg-white rounded-lg shadow-lg gap-6 w-[800px] ml-[300px]">
+                <img src="./img/Flat (3).svg" alt="">
+                <div class="flex flex-col justify-between p-6">
+                    <div>
+                        <div class="flex gap-1 mb-2">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                        </div>
+                        <h3 class="text-lg font-semibold">3-комнатная квартира</h3>
+                        <p class="text-gray-500">700 м до моря</p>
+                        <p class="text-gray-600">Ливадия, Виноградная ул, 6А</p>
+                        <p class="text-blue-500 text-sm mt-2">32м2 | 4 гостя | 1 спальная | 1 кровать</p>
+                        <div class="flex gap-4 mt-2">
+                            <img src="./img/smart-refrigerator.svg" alt="Холодильник">
+                            <img src="./img/air-conditioner.svg" alt="Кондиционер">
+                            <img src="./img/wifi-signal.svg" alt="Wi-Fi">
+                            <img src="./img/+ 4.svg" alt="Еще">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center p-5">
+                    <p class="text-gray-800 font-bold text-3xl">3000 ₽</p>
+                    <p class="text-gray-500">Сутки</p>
+                    <button class="border-2 border-blue-500 text-blue-500 px-4 py-2 mt-3 rounded w-36">
+                        Смотреть
+                    </button>
+                    <button class="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-4 py-2 mt-3 rounded w-36">
+                        Забронировать
+                    </button>
+                </div>
+            </div>
+    
+            <div class="flex bg-white rounded-lg shadow-lg gap-6 w-[800px] ml-[300px]">
+                <img src="./img/Flat (1).svg" alt="">
+                <div class="flex flex-col justify-between p-6">
+                    <div>
+                        <div class="flex gap-1 mb-2">
+                            <img src="./img/Звезда 1.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                            <img src="./img/Звезда 6.svg" alt="">
+                        </div>
+                        <h3 class="text-lg font-semibold">3-комнатная квартира</h3>
+                        <p class="text-gray-500">700 м до моря</p>
+                        <p class="text-gray-600">Ливадия, Виноградная ул, 6А</p>
+                        <p class="text-blue-500 text-sm mt-2">32м2 | 4 гостя | 1 спальная | 1 кровать</p>
+                        <div class="flex gap-4 mt-2">
+                            <img src="./img/smart-refrigerator.svg" alt="Холодильник">
+                            <img src="./img/air-conditioner.svg" alt="Кондиционер">
+                            <img src="./img/wifi-signal.svg" alt="Wi-Fi">
+                            <img src="./img/+ 4.svg" alt="Еще">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center p-5">
+                    <p class="text-gray-800 font-bold text-3xl">3000 ₽</p>
+                    <p class="text-gray-500">Сутки</p>
+                    <button class="border-2 border-blue-500 text-blue-500 px-4 py-2 mt-3 rounded w-36">
+                        Смотреть
+                    </button>
+                    <button class="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-4 py-2 mt-3 rounded w-36">
+                        Забронировать
+                    </button>
+                </div>
+            </div>
+            <div class="flex justify-around w-[150px] ml-[650px]">
+                <p class="text-gray-500">1</p>
+                <p class="text-blue-500 underline">2</p>
+                <p class="text-gray-500">3</p>
+                <p class="text-gray-500">4</p>
+                <p class="text-gray-500">5</p>
+                <p class="text-gray-500">></p>
+            </div>
+            <div class="w-[800px] h-[250px] ml-[300px] bg-gray-200 text-center rounded-[10px] p-2">
+                <h1 class="text-blue-600 text-2xl p-3">Не нашли подходящее жилье? Мало вариантов?</h1>
+                <p class="text-gray-600">Оставьте заявку на индивидуальный подбор</p>
+                <p class="text-gray-600">С вами свяжеться наш менеджер и подберет идеальное жилье</p>
+                <div class="flex justify-around p-4">
+                    <input class="w-[150px] h-[50px] p-5 border-white bg-white rounded-[5px]" type="text" placeholder="Имя">
+                    <input class="w-[250px] h-[50px] p-5 border-white bg-white rounded-[5px]" type="text" placeholder="Телефон">
+                    <button  class="w-[200px] bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded ">Подобрать жилье</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
     <section>
         <div class="flex justify-between">
             <img class="left-0" src="./img/index2.png" alt="">
