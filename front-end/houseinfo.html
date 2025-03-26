@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="houseinfo.js" defer></script>
+</head>
+<body class="bg-no-repeat bg-top z-10 bg-white">
+    <header
+    class="fixed top-0 left-0 w-full backdrop-blur-md px-[150px] justify-between max-w-full mx-auto py-4 flex items-center text-white z-20">
+
+    <div class="flex items-center gap-4">
+        <img src="./logos/logo (black).svg" alt="Логотип" class="h-10">
+        <span class="text-lg text-black font-semibold">RENT<span class="text-blue-500">КРЫМ</span></span>
+        <div class="ml-4 text-sm text-black">
+            <p>Экспресс-подбор</p>
+            <p>жилья по самым низким ценам</p>
+        </div>
+    </div>
+
+    <nav class="hidden md:flex gap-6 text-lg font-medium text-black mr-[150px]">
+        <a href="./index.html" class="hover:text-blue-400 transition">Главная</a>
+        <a href="./main.html" class="hover:text-blue-400 transition">Объявления</a>
+        <a href="#" class="hover:text-blue-400 transition">Контакты</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+        <a href="#" class="text-lg text-black font-bold">8 (800) 500-56-55</a>
+        <a href="#" class="text-blue-400"><img src="./logos/telegram.png" alt=""></a>
+        <a href="#" class="text-green-400"><img src="./logos/whatsapp.png" alt=""></a>
+        <a href="#" class="text-green-400"><img src="./logos/viber.png" alt=""></a>
+    </div>
+
+</header>
+
+<section class="flex mb-[100px] p-4 mt-[120px]">
+
+    <div class="max-w-5xl mx-auto bg-white p-6 shadow-lg rounded-lg">
+        <nav class="text-gray-500 mb-4">
+            <a href="#" class="text-blue-500">К поиску</a> → Крым → Ялта → №1267
+        </nav>
+
+        <h1 class="text-3xl font-bold mb-4">3-Комнатная квартира — Ялта, Блюхера, 48</h1>
+
+        <div class="flex gap-6">
+            <div class="w-3/4">
+                <img id="mainImage" src="./img/Flat (2).svg" alt="Квартира" class="w-full rounded-lg">
+            </div>
+
+            <div class="flex flex-col">
+                <div class="w-full max-w-md bg-gray-50 p-6 rounded-lg shadow-md flex flex-col">
+                    <label class="block mb-2">Заезд</label>
+                    <input type="date" class="w-full p-3 border rounded mb-4">
+                    
+                    <label class="block mb-2">Выезд</label>
+                    <input type="date" class="w-full p-3 border rounded mb-4">
+                    
+                    <label class="block mb-2">Гостей</label>
+                    <input type="number" min="1" class="w-full p-3 border rounded mb-4">
+                    
+                    <p class="text-lg font-semibold">Цена: <span class="ml-[60zpx] text-blue-500">От 2400 ₽</span></p>
+                    
+                    <button class="w-full bg-blue-500 text-white py-3 rounded-lg mt-4 text-lg">Забронировать</button>
+
+                    <div class="text-gray-500 text-center text-lx leading-tight w-full p-2">
+                        <p class="whitespace-nowrap">Выберите даты и количество гостей</p>
+                        <p class="whitespace-nowrap">для расчёта стоимости проживания</p>
+                    </div>    
+                    
+                    <div class="mt-6 text-center text-lg">
+                        <p>Служба бронирования</p>
+                        <p class="font-bold text-xl">8 (800) 500-56-55</p>
+                    </div>                                   
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-5 gap-2 mt-6">
+            <img src="./img/Flat (2).svg" alt="Фото" class="thumbnail w-full aspect-square object-cover border-4 border-transparent cursor-pointer">
+            <img src="./logos/houseinfo1.svg" alt="Фото" class="thumbnail w-full aspect-square object-cover border-4 border-transparent cursor-pointer">
+            <img src="./logos/houseinfo2.svg" alt="Фото" class="thumbnail w-full aspect-square object-cover border-4 border-transparent cursor-pointer">
+            <img src="./logos/houseinfo3.svg" alt="Фото" class="thumbnail w-full aspect-square object-cover border-4 border-transparent cursor-pointer">
+            <img src="./logos/houseinfo4.svg" alt="Фото" class="thumbnail w-full aspect-square object-cover border-4 border-transparent cursor-pointer">
+        </div>                
+    </div>
+</section>
+
+<section class="max-w-5xl mx-auto p-6 rounded-lg mt-6 flex gap-6">
+    <div class="flex-1">
+        <div class="p-6 rounded-lg bg-gray-50 mb-6">
+            <h2 class="text-xl font-semibold">Ялта, Блюхера, 48</h2>
+            <p class="text-gray-500 mb-4">3-комнатная квартира</p>
+    
+            <div class="grid grid-cols-5 gap-4 text-center">
+                <div>
+                    <img src="./img/door.svg" alt="Спальни" class="mx-auto">
+                    <p>2 спальни</p>
+                </div>
+                <div>
+                    <img src="./img/bed.svg" alt="Кровати" class="mx-auto">
+                    <p>2 кровати</p>
+                </div>
+                <div>
+                    <img src="./img/community.svg" alt="Гости" class="mx-auto">
+                    <p>4 гостя</p>
+                </div>
+                <div>
+                    <p class="text-xl">42 м²</p>
+                    <p class="mt-[2px]">общая площадь</p>
+                </div>
+                <div>
+                    <p class="text-xl">1 из 8</p>
+                    <p class="mt-[3px]">этажей (есть лифт)</p>
+                </div>
+            </div>
+    
+            <p class="mt-4 font-semibold">Спальных мест</p>
+            <p class="text-gray-500">2 двуспальные кровати</p>
+        </div>
+    
+        <div class="p-6 rounded-lg bg-gray-50 mb-6">
+            <h2 class="text-lg font-semibold mb-4">Правила размещения</h2>
+            <div class="grid grid-cols-2 text-gray-700 p-2 gap-3">
+                <p>Заезд</p> <p class="text-right">После 14:00</p>
+                <p>Выезд</p> <p class="text-right">До 12:00</p>
+                <p>Минимальный срок проживания</p> <p class="text-right">От 1 суток</p>
+                <p>Страховой депозит (возвращается при отъезде)</p> <p class="text-right font-bold">3 000 ₽</p>
+            </div>
+        </div>
+    
+        <div class="p-6 bg-gray-50 rounded-lg mb-6">
+            <h2 class="text-lg font-semibold mb-4">Описание</h2>
+            <p class="text-gray-700 mb-4">
+                2-комнатная квартира с дизайнерским евроремонтом и отдельной кухней сдаётся на срок от 1 суток. <br>
+                Заезд после 14:00, отъезд до 12:00.
+            </p>
+    
+            <div class="grid grid-cols-2 gap-8 text-gray-700">
+                <div>
+                    <h3 class="mb-2 font-bold">Ванная комната</h3>
+                    <ul class="space-y-1 text-gray-500">
+                        <li>Количество ванных комнат: 1</li>
+                        <li>Полотенца</li>
+                        <li>Туалетные принадлежности</li>
+                        <li>Фен</li>
+                        <li>Душ</li>
+                        <li>Дополнительный туалет</li>
+                        <li>Тапочки</li>
+                        <li>Гигиенический душ</li>
+                    </ul>
+    
+                    <h3 class="font-bold mt-4 mb-2">Входит в стоимость проживания</h3>
+                    <ul class="space-y-1 text-gray-500">
+                        <li>Постельное бельё</li>
+                        <li>Интернет</li>
+                    </ul>
+    
+                    <h3 class="font-bold mt-4 mb-2">Оснащение</h3>
+                    <ul class="space-y-1 text-gray-500">
+                        <li>Стиральная машина</li>
+                        <li>Беспроводной интернет Wi-Fi</li>
+                        <li>Сушилка для белья</li>
+                        <li>Центральное отопление</li>
+                        <li>Вентилятор</li>
+                        <li>Утюг с гладильной доской</li>
+                        <li>Металлическая дверь</li>
+                        <li>Диван-кровать</li>
+                        <li>Шкаф</li>
+                        <li>Москитная сетка</li>
+                        <li>Чистящие средства</li>
+                    </ul>
+                </div>
+    
+                <div>
+                    <h3 class="font-bold mb-2">Для отдыха в помещении</h3>
+                    <ul class="space-y-1 text-gray-500">
+                        <li>Телевизор</li>
+                        <li>Эфирное ТВ</li>
+                        <li>Кабельное ТВ</li>
+                    </ul>
+    
+                    <h3 class="font-bold mt-4 mb-2">Кухонное оборудование</h3>
+                    <ul class="space-y-1 text-gray-500">
+                        <li>Газовая плита</li>
+                        <li>Микроволновка</li>
+                        <li>Посуда и принадлежности</li>
+                        <li>Столовые приборы</li>
+                        <li>Холодильник</li>
+                        <li>Морозильник</li>
+                        <li>Кухонный гарнитур</li>
+                        <li>Обеденный стол</li>
+                    </ul>
+    
+                    <h3 class="font-bold mt-4 mb-2">Оснащение двора</h3>
+                    <ul class="space-y-1 text-gray-500">
+                        <li>Парковка</li>
+                    </ul>
+    
+                    <h3 class="font-bold mt-4 mb-2">Доступность</h3>
+                    <ul class="space-y-1 text-gray-500">
+                        <li>Лифт</li>
+                        <li>Находится на первом этаже</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rounded-lg bg-gray-50 w-full mt-[20px]">
+                <h2 class="text-lg font-bold mb-4">Дополнительная информация</h2>
+                <p class="text-gray-700">
+                    Просторная двухкомнатная квартира с дизайнерским интерьером в итальянском стиле. В квартире есть всё необходимое для длительного комфортного проживания от 1 до 4-х человек. Интернет Wi-Fi, телевизор Smart TV, холодильник, СВЧ, стиральная машина, утюг, фен и т.д.
+                </p>
+                <p class="text-gray-700 mt-2">
+                    До метро Академическая – 2 минуты ходьбы. Рядом сквер, площадь Хо Ши Мина, государственный Дарвиновский музей, Роснано, головной офис Сбербанка, НМИЦ эндокринологии Минздрава России, центр дизайна и интерьера "Экспострой", крупные торговые центры "Рио" и "Капитолий", магазины, рестораны и кафе. До Экспоцентра – 30 минут на метро.
+                </p>
+                <p class="text-gray-700 mt-2">
+                    Заезд с 14:00, выезд до 12:00.
+                </p>
+                <p class="text-gray-700 mt-2">
+                    Итальянская мебель, межкомнатные двери, сантехника.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    
+     
+    
+
+    <div class="w-[320px] flex-shrink-0 p-6 rounded-lg text-center self-start">
+        <div class="mb-6">
+            <img src="./img/commission.svg" alt="Комиссия 0%" class="mx-auto">
+            <h3 class="text-xl font-bold text-blue-500">Комиссия - 0%</h3>
+            <p class="text-gray-500 text-sm mt-2">Эксклюзивно! Только при бронировании у нас вы можете быть уверены, что платите ТОЛЬКО собственнику.</p>
+        </div>
+
+        <div class="mb-6">
+            <img src="./img/reliability.svg" alt="Надежно" class="mx-auto">
+            <h3 class="text-xl font-bold text-blue-500">Надежно 100%</h3>
+            <p class="text-gray-500 text-sm mt-2">Мы проверяем каждое объявление и гарантируем никаких "черных" маклеров.</p>
+        </div>
+
+        <div>
+            <img src="./img/sale.svg" alt="Гарантия низкой цены" class="mx-auto">
+            <h3 class="text-xl font-bold text-blue-500">Гарантия низкой цены</h3>
+            <p class="text-gray-500 text-sm mt-2">Мы готовы предложить вам объекты по самым низким ценам в Ялте!</p>
+        </div>
+    </div>
+</section>
+
+<section class="flex items-center justify-center gap-2 ">
+    <div class="mr-[120px] ml-[60px]">
+        <h1 class="text-xl font-bold">Расположение Квартиры</h1>
+        <p class="text-gray-500">Ялта, Блюхера, 48</p>
+        <img class="mt-[10px] p-3" src="./img/Карта (1).svg" alt="">
+    </div>
+    
+</section>
+<footer>
+    <div class="bg-[#212121] h-[240px] w-full items-center justify-center absolute flex gap-[50px]">
+
+        <div class="flex items-center gap-4">
+            <img src="./logos/logo-appartment.png" alt="Логотип" class="h-10">
+            <span class="text-[29px] font-semibold text-white">RENT<span class="text-blue-500">КРЫМ</span></span>
+        </div>
+
+        <div class="text-white flex flex-col justify-center text-[16px] w-[300px] gap-2">
+            <span>Экспресс-подбор</span>
+            <span>Жилья по самым низким ценам</span>
+            <span class="mt-[10px]">Работаем с 2008 года</span>
+        </div>
+
+        <div class="flex flex-col items-center justify-center text-white gap-5 w-[300px] text-[19px]">
+            <p>Телефон: 8 (800) 500-56-55</p>
+            <div class="flex gap-5">
+                <a href="#"><img src="./logos/telegram.png" alt="Telegram"></a>
+                <a href="#"><img src="./logos/whatsapp.png" alt="WhatsApp"></a>
+                <a href="#"><img src="./logos/viber.png" alt="Viber"></a>
+            </div>
+        </div>
+        <div class="flex flex-col justify-center items-start text-white w-[300px] gap-5 text-[19px]">
+            <p>Принимаем оплату:</p>
+            <div class="flex gap-5">
+                <a href="#"><img src="./logos/visa.png" alt=""></a>
+                <a href="#"><img src="./logos/maestro.png" alt=""></a>
+                <a href="#"><img src="./logos/mastercard.png" alt=""></a>
+                <a href="#"><img src="./logos/mir.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
