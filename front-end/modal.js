@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closePaymentModalBtn = document.getElementById("closePaymentModal");
     const confirmPaymentBtn = document.getElementById("confirmPayment");
 
-    const inputs = document.querySelectorAll("input");п
+    const inputs = document.querySelectorAll("input");
     const payButton = document.getElementById("openPaymentModal");
 
     function checkInputs() {
