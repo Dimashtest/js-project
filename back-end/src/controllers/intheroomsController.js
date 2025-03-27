@@ -1,20 +1,19 @@
-const inTheRoom = require('../models/intheroomsModel');
-const InTheRoom = require('../models/intheroomsModel');
+const inTheRoom = require('../models/intheroomsModel')
 
-const getAllInTheRooms = async (req, res) => {
+exports.getAllInTheRooms = async (req, res) => {
   try {
-    const rooms = await inTheRoom.findAll();
-    const result = [];
+    const rooms = await inTheRoom.findAll()
+    const result = []
 
     rooms.forEach(room => {
-      const amenities = {};
+      const amenities = {}
 
-      if (room.wifi) amenities.wifi = 'Wi-Fi';
-      if (room.conditioner) amenities.condition = 'Кондиционер';
-      if (room.fridge) amenities.fridge = 'Холодильник';
-      if (room.kitchen) amenities.kitchen = 'Кухня';
-      if (room.balcony) amenities.balcony = 'Балкон';
-      if (room.tv) amenities.tv = 'Телевизор';
+      if (room.wifi) amenities.wifi = 'Wi-Fi'
+      if (room.conditioner) amenities.condition = 'Кондиционер'
+      if (room.fridge) amenities.fridge = 'Холодильник'
+      if (room.kitchen) amenities.kitchen = 'Кухня'
+      if (room.balcony) amenities.balcony = 'Балкон'
+      if (room.tv) amenities.tv = 'Телевизор'
         room.jacuzzi
       result.push({
         intheroom_id: room.intheroom_id,
@@ -22,8 +21,8 @@ const getAllInTheRooms = async (req, res) => {
       });
     });
 
-    res.json(result);
+    res.json(result)
   } catch (err) {
-    res.status(500).json({ message: 'Ошибка сервера' });
+    res.status(500).json({ message: 'Ошибка сервера' })
   }
-};
+}

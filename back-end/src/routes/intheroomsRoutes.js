@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const intheroomController = require('../controllers/intheroomController');
+const express = require('express')
+const router = express.Router()
+const intheroomsController = require('../controllers/intheroomsController')
 
-router.get('/', intheroomController.getAllInTheRooms);
+router.get('/intheroomsControllers/', intheroomsController.getAllInTheRooms)
 
-module.exports = router;
+module.exports = router

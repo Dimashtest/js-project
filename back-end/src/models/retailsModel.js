@@ -14,7 +14,6 @@ const retail = sequelize.define(
         intheroom_id: DataTypes.INTEGER,
         intheteretory_id: DataTypes.INTEGER,
         near_id: DataTypes.INTEGER,
-        rules_id: DataTypes.INTEGER,
         service_id: DataTypes.INTEGER,
         name: {
             type: DataTypes.STRING,
