@@ -22,7 +22,9 @@ const rentAppartments = sequelize.define(
     }
 )
 
-clients.hasMany(rentAppartments, { foreignKey: 'client_id' })
-rentAppartments.belongsTo(clients, { foreignKey: 'client_id' })
+clients.hasMany(rentAppartments, { foreignKey: 'client_id', as: 'rentals' })
+rentAppartments.belongsTo(clients, { foreignKey: 'client_id', as: 'client' })
+
+console.log('rentAppartments Model:', rentAppartments)
 
 module.exports = rentAppartments

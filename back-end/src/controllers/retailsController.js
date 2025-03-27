@@ -1,4 +1,4 @@
-const Retail = require('../models/retailModel')
+const Retail = require('../models/retailsModel')
 
 exports.getAllRetails = async (req, res) => {
   try {

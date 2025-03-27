@@ -1,4 +1,4 @@
-const near = require('../models/nearModel')
+const near = require('../models/nearsModel')
 
 exports.getAllNear = async (req, res) => {
   try {

@@ -15,6 +15,13 @@ app.use(cors())
 app.use('/api/rentRoutes', rentRoutes)
 app.use('/api/clientRoutes', clientRoutes)
 app.use('/api/paymentRoutes', paymetRoutes)
+app.use('/intheroom', require('./src/routes/intheroomsRoutes'))
+app.use('/intheterritory', require('./src/routes/intheterritoriesRoutes'))
+app.use('/near', require('./src/routes/nearsRoutes'))
+app.use('/distancetothesea', require('./src/routes/distancetotheseasRoutes'))
+app.use('/service', require('./src/routes/servicesRoutes'))
+app.use('/numberofroom', require('./src/routes/numberofroomsRoutes'))
+app.use('/whatisrent', require('./src/routes/whatisrentsRoutes'))
 
 const PORT = process.env.PORT
 
@@ -36,8 +43,3 @@ const start = async () => {
 
 start()
 
-app.use('/intheroom', require('./routes/intheroomRoutes'));
-app.use('/intheteretory', require('./routes/intheteretoryRoutes'));
-app.use('/near', require('./routes/nearRoutes'));
-app.use('/rules', require('./routes/rulesRoutes'));
-app.use('/service', require('./routes/serviceRoutes'));

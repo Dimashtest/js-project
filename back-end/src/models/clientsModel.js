@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
-const payments = require('./paymentsModel')
 
 const clients = sequelize.define(
     'clients',
@@ -33,8 +32,5 @@ const clients = sequelize.define(
         tableName: 'clients'
     }
 )
-
-clients.hasMany(payments, { foreignKey: 'client_id', as: 'payments' })
-payments.belongsTo(clients, { foreignKey: 'client_id', as: 'client' })
 
 module.exports = clients

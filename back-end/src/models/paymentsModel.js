@@ -34,11 +34,10 @@ const payments = sequelize.define(
     }
 )
 
+rentAppartments.hasMany(payments, { foreignKey: 'booking_id', as: 'payments' })
+payments.belongsTo(rentAppartments, { foreignKey: 'booking_id', as: 'rental' })
 
-rentAppartments.hasMany(payments, { foreignKey: 'booking_id' })
-payments.belongsTo(rentAppartments, { foreignKey: 'booking_id' })
-
-clients.hasMany(payments, { foreignKey: 'client_id' })
-payments.belongsTo(clients, { foreignKey: 'client_id' })
+clients.hasMany(payments, { foreignKey: 'booking_id', as: 'payments' })
+payments.belongsTo(clients, { foreignKey: 'client_id', as: 'client' })
 
 module.exports = payments
