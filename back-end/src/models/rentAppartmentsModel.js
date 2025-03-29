@@ -1,30 +1,53 @@
-const { DataTypes } = require('sequelize')
-const sequelize = require('../config/db')
-const clients = require('./clientsModel')
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db');
+const retail = require('./retailsModel'); // Импортируем модель retail
+const clients = require('./clientsModel'); // Импортируем модель clients
 
-const rentAppartments = sequelize.define(
-    'rentAppartments',
 
+// Модель бронирования внутри этого же файла
+const Booking = sequelize.define(
+    'Booking',
     {
-       booking_id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-        allowNull: false
-       },
-       client_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-       } 
+        booking_id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        client_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        retail_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'retail',
+                key: 'retail_id'
+            }
+        },
+        start_date: {
+            type: DataTypes.DATEONLY,
+            allowNull: false
+        },
+        end_date: {
+            type: DataTypes.DATEONLY,
+            allowNull: false
+        },
+        total_price: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
+        status: {
+            type: DataTypes.STRING,
+            defaultValue: 'pending'
+        }
     },
     {
-        tableName: 'rent_appartments'
+        tableName: 'bookings'
     }
-)
+);
 
-clients.hasMany(rentAppartments, { foreignKey: 'client_id', as: 'rentals' })
-rentAppartments.belongsTo(clients, { foreignKey: 'client_id', as: 'client' })
+Booking.belongsTo(clients, { foreignKey: 'client_id' });
+Booking.belongsTo(retail, { foreignKey: 'retail_id' });
 
-console.log('rentAppartments Model:', rentAppartments)
-
-module.exports = rentAppartments
+module.exports = Booking

@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
-const retail = require('./retailsModel')
 
 const service = sequelize.define('Service', {
   service_id: {
@@ -12,12 +11,11 @@ const service = sequelize.define('Service', {
   registration: DataTypes.BOOLEAN,
   elevator: DataTypes.BOOLEAN,
   invalidAccess: DataTypes.BOOLEAN
-  },
+},
   {
-      tableName: 'service'
+    tableName: 'service',
+    timestamps: false
   }
 )
-
-service.belongsTo(retail, { foreignKey: 'retail_id' })
 
 module.exports = service

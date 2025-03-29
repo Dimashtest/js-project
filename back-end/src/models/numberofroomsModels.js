@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
-const retail = require('./retailsModel')
 
 const numberofroom = sequelize.define(
     'numberofroom', 
@@ -14,10 +13,9 @@ const numberofroom = sequelize.define(
         numberofsplitedbeds: DataTypes.INTEGER
     },
     {
-        tableName: 'numberofroom'
+        tableName: 'numberofroom',
+        timestamps: false
     }
 )
-
-numberofroom.belongsTo(retail, { foreignKey: 'retail_id' })
 
 module.exports = numberofroom

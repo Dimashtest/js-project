@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
-const retail = require('./retailsModel')
 
 const near = sequelize.define(
     'near',
@@ -15,10 +14,9 @@ const near = sequelize.define(
         bar: DataTypes.BOOLEAN
     },
     {
-        tableName: 'near'
+        tableName: 'near',
+        timestamps: false
     }
 )
-
-near.belongsTo(retail, { foreignKey: 'retail_id' })
 
 module.exports = near

@@ -1,26 +1,39 @@
-const { DataTypes } = require('sequelize')
-const sequelize = require('../config/db')
-const retail = require('./retailsModel')
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db');
 
 const inTheTerritory = sequelize.define(
     'inTheTerritory',
     {
-        intheteretory_id: {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        parking: DataTypes.BOOLEAN,
-        besedka: DataTypes.BOOLEAN,
-        gril: DataTypes.BOOLEAN,
-        swimmingpool: DataTypes.BOOLEAN,
-        furniture: DataTypes.BOOLEAN
+        parking: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        besedka: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        gril: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        swimmingpool: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        furniture: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        }
     },
     {
-        tableName: 'intheterritory'
+        tableName: 'intheterritory',
+        timestamps: false
     }
-)
+);
 
-inTheTerritory.belongsTo(retail, { foreignKey: 'retail_id' })
-
-module.exports = inTheTerritory
+module.exports = inTheTerritory;

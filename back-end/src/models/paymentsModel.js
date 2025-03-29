@@ -1,32 +1,37 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
-const rentAppartments = require('./rentAppartmentsModel')
-const clients = require('./clientsModel')
 
-const payments = sequelize.define(
-    'payments',
+const Payment = sequelize.define(
+    'Payment',
     {
         payment_id: {
             type: DataTypes.INTEGER,
-            autoIncrement: true,
             primaryKey: true,
-            allowNull: false
+            autoIncrement: true
         },
         booking_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: 'bookings',
+                key: 'booking_id'
+            }
         },
-        client_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        date: {
-            type: DataTypes.DATE,
-            allowNull: false
-        },
-        summa: {
+        amount: {
             type: DataTypes.FLOAT,
             allowNull: false
+        },
+        method: {
+            type: DataTypes.STRING, // например: 'card', 'cash'
+            allowNull: false
+        },
+        payment_date: {
+            type: DataTypes.DATEONLY,
+            defaultValue: DataTypes.NOW
+        },
+        status: {
+            type: DataTypes.STRING, // например: 'paid', 'pending', 'failed'
+            defaultValue: 'pending'
         }
     },
     {
@@ -34,10 +39,4 @@ const payments = sequelize.define(
     }
 )
 
-rentAppartments.hasMany(payments, { foreignKey: 'booking_id', as: 'payments' })
-payments.belongsTo(rentAppartments, { foreignKey: 'booking_id', as: 'rental' })
-
-clients.hasMany(payments, { foreignKey: 'booking_id', as: 'payments' })
-payments.belongsTo(clients, { foreignKey: 'client_id', as: 'client' })
-
-module.exports = payments
+module.exports = Payment

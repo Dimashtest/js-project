@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
-const retail = require('./retailsModel')
+
 
 const distancetothesea = sequelize.define(
     'distancetothesea', 
@@ -10,13 +10,12 @@ const distancetothesea = sequelize.define(
             primaryKey: true,
             autoIncrement: true
         },
-        disctance: DataTypes.FLOAT,
+        distance: DataTypes.STRING,
     },
     {
-        tableName: 'distancetothesea'
+        tableName: 'distancetothesea',
+        timestamps: false
     }
 )
-
-distancetothesea.belongsTo(retail, { foreignKey: 'retail_id' })
 
 module.exports = distancetothesea

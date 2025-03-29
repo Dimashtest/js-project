@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
 
+
 const retail = sequelize.define(
     'retail',
     {
@@ -9,15 +10,59 @@ const retail = sequelize.define(
             primaryKey: true,
             autoIncrement: true
         },
-        numberofrooms_id: DataTypes.INTEGER,
-        distancetothesea_id: DataTypes.INTEGER,
-        intheroom_id: DataTypes.INTEGER,
-        intheteretory_id: DataTypes.INTEGER,
-        near_id: DataTypes.INTEGER,
-        service_id: DataTypes.INTEGER,
-        name: {
-            type: DataTypes.STRING,
+        numberofrooms_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'numberofroom',
+                key: 'numberofrooms_id'
+            }
+        },
+        distancetothesea_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'distancetothesea',
+                key: 'distancetothesea_id'
+            }
+        },
+        intheroom_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'intheroom',
+                key: 'intheroom_id'
+            }
+        },
+        intheterritory_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'intheterritory',
+                key: 'id' // Изменено на 'id'
+            }
+        },
+        near_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'near',
+                key: 'near_id'
+            }
+        },
+        service_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'service',
+                key: 'service_id'
+            }
+        },
+        price: {
+            type: DataTypes.FLOAT,
             allowNull: false
+        },
+        property_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'properties',
+                key: 'property_id'
+            }
         }
     },
     {
@@ -26,4 +71,4 @@ const retail = sequelize.define(
 )
 
 
-module.exports = retail
+module.exports = retail;

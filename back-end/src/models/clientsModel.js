@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
 
+
 const clients = sequelize.define(
     'clients',
     {
@@ -21,11 +22,17 @@ const clients = sequelize.define(
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: true,
+            validate: {
+                isEmail: true
+            }
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                len: [6, 100]
+            }
         }
     },
     {
