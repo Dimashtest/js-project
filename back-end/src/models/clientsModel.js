@@ -36,7 +36,8 @@ const clients = sequelize.define(
         }
     },
     {
-        tableName: 'clients'
+        tableName: 'clients',
+        timestamps: true,
     }
 )
 

@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/api/rentRoutes', rentRoutes)
-app.use('/api/clientRoutes', clientRoutes)
+app.use('/api/auth', clientRoutes)
 app.use('/api/paymentRoutes', paymetRoutes)
 app.use('/api/locations', locationRoutes)
 app.use('/api/properties', propertyRoutes)

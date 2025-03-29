@@ -1,45 +1,175 @@
-const registerForm = document.querySelector(".registerForm")
-const loginForm = document.querySelector(".loginForm")
-const toggleLogin = document.querySelector(".toggleLogin")
-const toggleRegister = document.querySelector(".toggleRegister")
-const linkRegister = document.querySelector(".linkRegister")
-const linkLogin = document.querySelector(".linkLogin")
-const registerBtn = document.querySelector(".register-btn")
-const loginBtn = document.querySelector(".login-btn")
+const registerForm = document.querySelector('.registerForm');
+const loginForm = document.querySelector('.login-Form');
+const toggleLogin = document.querySelector(".toggleLogin");
+const toggleRegister = document.querySelector(".toggleRegister");
+const guestButton = document.querySelector(".guest");
 
-document.querySelector('.guest').addEventListener('click', () => {
-    Swal.fire({
-        title: "Отлично!",
-        text: `Вы зашли как гость!`,
-        icon: "success",
-        heightAuto: false       
-    })
-    setTimeout(() => {
-        document.location.href = './index.html'
-    }, 2000)
-})
+if (registerForm) {
+    registerForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-document.querySelector('.register-btn').addEventListener('click' , () => {
-    
-    Swal.fire({
-        title: "Отлично!",
-        text: `Вы успешно зарегистрировались! Теперь войдите в свой аккаунт`,
-        icon: "success",
-        heightAuto: false
-    })
-})
+        // Получаем значения полей
+        const name = registerForm.name?.value;
+        const surname = registerForm.surname?.value;
+        const email = registerForm.email?.value;
+        const password = registerForm.password?.value;
+        const confirmPassword = registerForm.confirmPassword?.value;
 
-function showLoginForm() {
-    registerForm.classList.add("hidden")
-    loginForm.classList.remove("hidden")
+        // Логируем значения для отладки
+        console.log('name:', name);
+        console.log('surname:', surname);
+        console.log('email:', email);
+        console.log('password:', password);
+        console.log('confirmPassword:', confirmPassword);
+
+        // Проверка на пустые поля
+        if (!name || !surname || !email || !password || !confirmPassword) {
+            return Swal.fire({
+                title: 'Ошибка',
+                text: 'Пожалуйста, заполните все поля',
+                icon: 'error',
+                heightAuto: false
+            });
+        }
+
+        // Проверка на совпадение паролей
+        if (password !== confirmPassword) {
+            return Swal.fire({
+                title: 'Ошибка',
+                text: 'Пароли не совпадают',
+                icon: 'error',
+                heightAuto: false
+            });
+        }
+
+        try {
+            const res = await fetch(`http://localhost:4000/api/auth/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    client_name: name,
+                    client_surname: surname,
+                    email,
+                    password
+                })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                Swal.fire({
+                    title: 'Успешно!',
+                    text: 'Регистрация прошла успешно. Войдите в аккаунт.',
+                    icon: 'success',
+                    heightAuto: false
+                });
+                registerForm.reset();
+                showLoginForm();
+            } else {
+                Swal.fire({
+                    title: 'Ошибка',
+                    text: data.message || 'Что-то пошло не так',
+                    icon: 'error',
+                    heightAuto: false
+                });
+            }
+        } catch (err) {
+            Swal.fire({
+                title: 'Ошибка',
+                text: 'Сервер недоступен',
+                icon: 'error',
+                heightAuto: false
+            });
+            console.error(err);
+        }
+    });
 }
 
-function showRegisterForm() {
-    loginForm.classList.add("hidden")
-    registerForm.classList.remove("hidden")
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const emailInput = loginForm.querySelector('input[name="email"]');
+        const passwordInput = loginForm.querySelector('input[name="password"]');
+
+        if (!emailInput || !passwordInput) {
+            console.error('Поля email или password не найдены');
+            return;
+        }
+
+        const email = emailInput.value;
+        const password = passwordInput.value;
+
+        console.log('login email:', email);
+        console.log('login password:', password);
+
+        if (!email || !password) {
+            return Swal.fire({
+                title: 'Ошибка',
+                text: 'Пожалуйста, заполните все поля',
+                icon: 'error',
+                heightAuto: false
+            });
+        }
+
+        try {
+            const res = await fetch('http://localhost:4000/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                Swal.fire({
+                    title: 'Успешно!',
+                    text: 'Вход выполнен успешно.',
+                    icon: 'success',
+                    heightAuto: false
+                });
+
+                // После успешного входа перенаправляем пользователя на index.html
+                setTimeout(() => {
+                    window.location.href = './lk.html';
+                }, 2000);
+            } else {
+                Swal.fire({
+                    title: 'Ошибка',
+                    text: data.message || 'Не удалось войти',
+                    icon: 'error',
+                    heightAuto: false
+                });
+            }
+        } catch (err) {
+            Swal.fire({
+                title: 'Ошибка',
+                text: 'Сервер недоступен',
+                icon: 'error',
+                heightAuto: false
+            });
+            console.error(err);
+        }
+    });
 }
 
-toggleLogin.addEventListener("click", showLoginForm)
-toggleRegister.addEventListener("click", showRegisterForm)
-linkRegister.addEventListener("click", showRegisterForm)
-linkLogin.addEventListener("click", showLoginForm)
+
+if (toggleRegister) {
+    toggleRegister.addEventListener('click', () => {
+        loginForm.classList.add('hidden');
+        registerForm.classList.remove('hidden')
+    })
+}
+
+if (toggleLogin) {
+    toggleLogin.addEventListener('click', () => {
+        registerForm.classList.add('hidden')
+        loginForm.classList.remove('hidden')
+    })
+}
+
+if (guestButton) {
+    guestButton.addEventListener('click', () => {
+        window.location.href = './index.html'
+    })
+}
