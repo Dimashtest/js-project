@@ -122,9 +122,15 @@ INSERT INTO locations (city, street, house_number) VALUES
 ('Виноградное', 'Шоссейная', '12А');
 
 
-INSERT INTO properties (name, type, location_id)
+INSERT INTO properties (name, type, location_id, near_id, intheroom_id, id, numberofrooms_id, service_id, distancetothesea_id)
 SELECT name, type, (
-  SELECT location_id FROM locations ORDER BY RAND() LIMIT 1
+  (SELECT location_id FROM locations ORDER BY RAND() LIMIT 1),
+  (SELECT near_id FROM near ORDER BY RAND() LIMIT 1),
+  (SELECT intheroom_id FROM intheroom ORDER BY RAND() LIMIT 1),
+  (SELECT id FROM intheterritory ORDER BY RAND() LIMIT 1),
+  (SELECT numberofrooms_id FROM numberofroom ORDER BY RAND() LIMIT 1),
+  (SELECT service_id FROM service ORDER BY RAND() LIMIT 1),
+  (SELECT distancetothesea_id FROM distancetothesea ORDER BY RAND() LIMIT 1)
 )
 FROM (
   SELECT 'Отель Арбат' AS name, 'hotel' AS type UNION ALL
@@ -554,24 +560,12 @@ VALUES
 
 
 INSERT INTO retail (
-  numberofrooms_id,
-  distancetothesea_id,
-  intheroom_id,
-  intheterritory_id,
-  near_id,
-  service_id,
   price,
   createdAt,
   updatedAt,
   property_id
 )
 SELECT
-  FLOOR(1 + RAND() * 10), -- numberofrooms_id (предположим, от 1 до 15)
-  FLOOR(1 + RAND() * 15), -- distancetothesea_id
-  FLOOR(1 + RAND() * 73), -- intheroom_id
-  FLOOR(1 + RAND() * 73), -- intheterritory_id
-  FLOOR(1 + RAND() * 69), -- near_id
-  FLOOR(1 + RAND() * 69), -- service_id
   FLOOR(2000 + RAND() * 8001), -- цена от 2000 до 10000
   NOW(),
   NOW(),

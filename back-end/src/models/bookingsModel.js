@@ -3,8 +3,7 @@ const sequelize = require('../config/db');
 const retail = require('./retailsModel'); // Импортируем модель retail
 const clients = require('./clientsModel'); // Импортируем модель clients
 
-
-// Модель бронирования внутри этого же файла
+// Модель бронирования
 const Booking = sequelize.define(
     'Booking',
     {
@@ -21,7 +20,7 @@ const Booking = sequelize.define(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'retail',
+                model: 'retail', // Указываем таблицу, с которой связь
                 key: 'retail_id'
             }
         },
@@ -47,7 +46,8 @@ const Booking = sequelize.define(
     }
 );
 
+// Связь с клиентами и retail
 Booking.belongsTo(clients, { foreignKey: 'client_id' });
 Booking.belongsTo(retail, { foreignKey: 'retail_id' });
 
-module.exports = Booking
+module.exports = Booking;

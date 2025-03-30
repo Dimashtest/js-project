@@ -11,10 +11,20 @@ exports.getAllInTheRooms = async (req, res) => {
       if (room.wifi) amenities.wifi = 'Wi-Fi'
       if (room.conditioner) amenities.condition = 'Кондиционер'
       if (room.fridge) amenities.fridge = 'Холодильник'
+      if (room.dishwasher) amenities.fridge = 'Посудомойка'
       if (room.kitchen) amenities.kitchen = 'Кухня'
       if (room.balcony) amenities.balcony = 'Балкон'
+      if (room.jacuzzi) amenities.fridge = 'Джакузи'
+      if (room.sauna) amenities.fridge = 'Сауна'
+      if (room.terrace) amenities.fridge = 'Терраса'
+      if (room.microwave) amenities.fridge = 'Микроволновка'
+      if (room.hairdryer) amenities.fridge = 'Фен'
+      if (room.iron) amenities.fridge = 'Утюг'
+      if (room.electickettle) amenities.fridge = 'Электрочайник'
+      if (room.dish) amenities.fridge = 'Посуда'
+      if (room.towel) amenities.fridge = 'Полотенца'
       if (room.tv) amenities.tv = 'Телевизор'
-        room.jacuzzi
+      
       result.push({
         intheroom_id: room.intheroom_id,
         amenities

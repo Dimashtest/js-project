@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
 
-const service = sequelize.define('Service', {
+const Service = sequelize.define('Service', {
   service_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -18,4 +18,4 @@ const service = sequelize.define('Service', {
   }
 )
 
-module.exports = service
+module.exports = Service

@@ -1,7 +1,7 @@
 const client = require('./clientsModel');
-const { rentAppartment, Booking } = require('./rentAppartmentsModel');
+const { rentAppartment, Booking } = require('./bookingsModel');
 const payment = require('./paymentsModel');
-const retail = require('./retailsModel');
+const Retail = require('./retailsModel');
 const service = require('./servicesModel');
 const near = require('./nearsModel');
 const inTheRoom = require('./intheroomsModel');
@@ -9,6 +9,7 @@ const inTheTerritory = require('./intheterritoriesModel');
 const distanceToTheSea = require('./distancetotheseasModel');
 const numberOfRoom = require('./numberofroomsModels');
 const Property = require('./propertiesModel')
+const Location = require('./locationsModel');
 
 // 📌 Client (1) --- (∞) RentAppartment
 client.hasMany(rentAppartment, { foreignKey: 'client_id', as: 'rentals' });
@@ -26,32 +27,26 @@ rentAppartment.hasMany(payment, { foreignKey: 'booking_id', as: 'payments' });
 payment.belongsTo(rentAppartment, { foreignKey: 'booking_id', as: 'rental' });
 
 // 📌 Retail (1) --- (∞) RentAppartment
-retail.hasMany(rentAppartment, { foreignKey: 'retail_id', as: 'rentals' });
-rentAppartment.belongsTo(retail, { foreignKey: 'retail_id', as: 'retail' }); // Добавлено
+Retail.hasMany(rentAppartment, { foreignKey: 'retail_id', as: 'rentals' });
+rentAppartment.belongsTo(Retail, { foreignKey: 'retail_id', as: 'retail' }); // Добавлено
 
-// 📌 Retail (1) --- (1) inTheRoom, inTheTerritory, near, service, distanceToTheSea, numberOfRoom
-retail.belongsTo(inTheRoom, { foreignKey: 'intheroom_id', as: 'inTheRoom' });
-retail.belongsTo(inTheTerritory, { foreignKey: 'intheterritory_id', as: 'inTheTerritory' });
-retail.belongsTo(near, { foreignKey: 'near_id', as: 'near' });
-retail.belongsTo(service, { foreignKey: 'service_id', as: 'service' });
-retail.belongsTo(distanceToTheSea, { foreignKey: 'distancetothesea_id', as: 'distanceToTheSea' });
-retail.belongsTo(numberOfRoom, { foreignKey: 'numberofrooms_id', as: 'numberOfRoom' });
 
-retail.belongsTo(Property, { foreignKey: 'property_id' })
-Property.hasMany(retail, { foreignKey: 'property_id' })
+Retail.belongsTo(Property, { foreignKey: 'property_id' })
+Property.hasMany(Retail, { foreignKey: 'property_id' })
+
+Property.belongsTo(Location, { foreignKey: 'location_id', as: 'Location' })
+Location.hasMany(Property, { foreignKey: 'location_id', as: 'Properties' })
+
+Property.hasMany(Retail, { foreignKey: 'property_id', as: 'retails' });
+Retail.belongsTo(Property, { foreignKey: 'property_id', as: 'property' });
 
 
 module.exports = {
   client,
   rentAppartment,
   payment,
-  retail,
-  service,
-  near,
-  inTheRoom,
-  inTheTerritory,
-  distanceToTheSea,
-  numberOfRoom,
+  Retail,
   Booking,
-  Property
+  Property,
+  Location
 }

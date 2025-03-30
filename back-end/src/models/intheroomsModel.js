@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
 
-const inTheRoom = sequelize.define(
-    'inTheRoom',
+const InTheRoom = sequelize.define(
+    'InTheRoom',
     {
         intheroom_id: {
             type: DataTypes.INTEGER,
@@ -32,4 +32,4 @@ const inTheRoom = sequelize.define(
     }
 )
 
-module.exports = inTheRoom
+module.exports = InTheRoom

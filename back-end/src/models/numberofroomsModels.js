@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
 
-const numberofroom = sequelize.define(
-    'numberofroom', 
+const Numberofroom = sequelize.define(
+    'Numberofroom', 
     {
         numberofrooms_id: {
             type: DataTypes.INTEGER,
@@ -18,4 +18,4 @@ const numberofroom = sequelize.define(
     }
 )
 
-module.exports = numberofroom
+module.exports = Numberofroom

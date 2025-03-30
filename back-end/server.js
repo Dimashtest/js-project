@@ -4,7 +4,7 @@ const sequelize = require('./src/config/db')
 const express = require('express')
 const cors = require('cors')
 
-const rentRoutes = require('./src/routes/rentAppartmentsRoutes')
+const rentRoutes = require('./src/routes/bookingsRoutes')
 const clientRoutes = require('./src/routes/clientsRoutes')
 const paymetRoutes = require('./src/routes/paymentsRoutes')
 const locationRoutes = require('./src/routes/locationsRoutes')

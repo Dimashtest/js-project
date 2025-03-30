@@ -52,15 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
             
             if (res.ok) {
                 const data = await res.json();
-                console.log(data);  // Посмотрим, что приходит от сервера
             
-                const userName = data.name || data.email;  // Если name нет, то используем email
+                const userName = data.client.client_name;  // Если name нет, то используем email
             
                 // Сохраняем имя пользователя в localStorage
                 localStorage.setItem('userName', userName);
             
                 // Обновляем текст и кнопку
-                greeting.innerText = `Привет, ${userName}`;
+                greeting.innerText = `Привет, ${userName}!`;
                 authButton.innerText = 'Выйти';
             
                 // Закрыть модальное окно

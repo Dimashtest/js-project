@@ -1,9 +1,8 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
 
-
-const distancetothesea = sequelize.define(
-    'distancetothesea', 
+const DistanceToTheSea  = sequelize.define(
+    'DistanceToTheSea', 
     {
         distancetothesea_id: {
             type: DataTypes.INTEGER,
@@ -18,4 +17,4 @@ const distancetothesea = sequelize.define(
     }
 )
 
-module.exports = distancetothesea
+module.exports = DistanceToTheSea

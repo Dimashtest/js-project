@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
-const inTheTerritory = sequelize.define(
-    'inTheTerritory',
+const InTheTerritory = sequelize.define(
+    'InTheTerritory',
     {
         id: {
             type: DataTypes.INTEGER,
@@ -36,4 +36,4 @@ const inTheTerritory = sequelize.define(
     }
 );
 
-module.exports = inTheTerritory;
+module.exports = InTheTerritory;

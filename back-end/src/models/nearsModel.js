@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/db')
 
-const near = sequelize.define(
-    'near',
+const Near = sequelize.define(
+    'Near',
     {
         near_id: {
             type: DataTypes.INTEGER,
@@ -19,4 +19,4 @@ const near = sequelize.define(
     }
 )
 
-module.exports = near
+module.exports = Near
