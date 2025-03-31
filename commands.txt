@@ -122,16 +122,29 @@ INSERT INTO locations (city, street, house_number) VALUES
 ('Виноградное', 'Шоссейная', '12А');
 
 
-INSERT INTO properties (name, type, location_id, near_id, intheroom_id, id, numberofrooms_id, service_id, distancetothesea_id)
-SELECT name, type, (
+INSERT INTO properties (
+  name, 
+  type, 
+  location_id, 
+  near_id, 
+  intheroom_id, 
+  interritory_id, 
+  numberofrooms_id, 
+  service_id, 
+  distancetothesea_id, 
+  price_id
+)
+SELECT 
+  name, 
+  type, 
   (SELECT location_id FROM locations ORDER BY RAND() LIMIT 1),
   (SELECT near_id FROM near ORDER BY RAND() LIMIT 1),
   (SELECT intheroom_id FROM intheroom ORDER BY RAND() LIMIT 1),
-  (SELECT id FROM intheterritory ORDER BY RAND() LIMIT 1),
+  (SELECT interritory_id FROM intheterritory ORDER BY RAND() LIMIT 1),
   (SELECT numberofrooms_id FROM numberofroom ORDER BY RAND() LIMIT 1),
   (SELECT service_id FROM service ORDER BY RAND() LIMIT 1),
-  (SELECT distancetothesea_id FROM distancetothesea ORDER BY RAND() LIMIT 1)
-)
+  (SELECT distancetothesea_id FROM distancetothesea ORDER BY RAND() LIMIT 1),
+  (SELECT price_id FROM price ORDER BY RAND() LIMIT 1)
 FROM (
   SELECT 'Отель Арбат' AS name, 'hotel' AS type UNION ALL
   SELECT 'Гранд Отель', 'hotel' UNION ALL
@@ -148,8 +161,6 @@ FROM (
   SELECT 'Отель Звезда', 'hotel' UNION ALL
   SELECT 'Отель Элит', 'hotel' UNION ALL
   SELECT 'Отель Лагуна', 'hotel' UNION ALL
-
-  -- houses
   SELECT 'Дом у моря', 'house' UNION ALL
   SELECT 'Коттедж Сосновый бор', 'house' UNION ALL
   SELECT 'Дом в лесу', 'house' UNION ALL
@@ -165,8 +176,6 @@ FROM (
   SELECT 'Коттедж Комфорт', 'house' UNION ALL
   SELECT 'Вилла Лето', 'house' UNION ALL
   SELECT 'Дом Панорама', 'house' UNION ALL
-
-  -- apartments
   SELECT 'Квартира на Ленина', 'apartment' UNION ALL
   SELECT 'Апартаменты Центр', 'apartment' UNION ALL
   SELECT 'Студия у парка', 'apartment' UNION ALL
@@ -182,8 +191,6 @@ FROM (
   SELECT 'Апартаменты Лофт', 'apartment' UNION ALL
   SELECT 'Квартира Элит', 'apartment' UNION ALL
   SELECT 'Квартира Сканди', 'apartment' UNION ALL
-
-  -- guest houses
   SELECT 'Гостевой дом Лазурь', 'guest_houses' UNION ALL
   SELECT 'Гостевой дом Виктория', 'guest_houses' UNION ALL
   SELECT 'Гостевой дом Уют', 'guest_houses' UNION ALL
@@ -199,8 +206,6 @@ FROM (
   SELECT 'Гостевой дом Олива', 'guest_houses' UNION ALL
   SELECT 'Гостевой дом Олимп', 'guest_houses' UNION ALL
   SELECT 'Гостевой дом Сказка', 'guest_houses' UNION ALL
-
-  -- private sector
   SELECT 'Частный сектор на Гагарина', 'private_sector' UNION ALL
   SELECT 'Частный сектор Уютный двор', 'private_sector' UNION ALL
   SELECT 'Частный сектор Морской бриз', 'private_sector' UNION ALL
@@ -558,18 +563,42 @@ VALUES
 (0, 0, 0, 1)
 ;
 
+INSERT INTO price (price)
+SELECT FLOOR(2000 + RAND() * 8001)
+FROM (
+    SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL
+    SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10 UNION ALL
+    SELECT 11 UNION ALL SELECT 12 UNION ALL SELECT 13 UNION ALL SELECT 14 UNION ALL SELECT 15 UNION ALL
+    SELECT 16 UNION ALL SELECT 17 UNION ALL SELECT 18 UNION ALL SELECT 19 UNION ALL SELECT 20 UNION ALL
+    SELECT 21 UNION ALL SELECT 22 UNION ALL SELECT 23 UNION ALL SELECT 24 UNION ALL SELECT 25 UNION ALL
+    SELECT 26 UNION ALL SELECT 27 UNION ALL SELECT 28 UNION ALL SELECT 29 UNION ALL SELECT 30 UNION ALL
+    SELECT 31 UNION ALL SELECT 32 UNION ALL SELECT 33 UNION ALL SELECT 34 UNION ALL SELECT 35 UNION ALL
+    SELECT 36 UNION ALL SELECT 37 UNION ALL SELECT 38 UNION ALL SELECT 39 UNION ALL SELECT 40 UNION ALL
+    SELECT 41 UNION ALL SELECT 42 UNION ALL SELECT 43 UNION ALL SELECT 44 UNION ALL SELECT 45 UNION ALL
+    SELECT 46 UNION ALL SELECT 47 UNION ALL SELECT 48 UNION ALL SELECT 49 UNION ALL SELECT 50 UNION ALL
+    SELECT 51 UNION ALL SELECT 52 UNION ALL SELECT 53 UNION ALL SELECT 54 UNION ALL SELECT 55 UNION ALL
+    SELECT 56 UNION ALL SELECT 57 UNION ALL SELECT 58 UNION ALL SELECT 59 UNION ALL SELECT 60 UNION ALL
+    SELECT 61 UNION ALL SELECT 62 UNION ALL SELECT 63 UNION ALL SELECT 64 UNION ALL SELECT 65 UNION ALL
+    SELECT 66 UNION ALL SELECT 67 UNION ALL SELECT 68 UNION ALL SELECT 69 UNION ALL SELECT 70 UNION ALL
+    SELECT 71 UNION ALL SELECT 72 UNION ALL SELECT 73 UNION ALL SELECT 74 UNION ALL SELECT 75 UNION ALL
+    SELECT 76 UNION ALL SELECT 77 UNION ALL SELECT 78 UNION ALL SELECT 79 UNION ALL SELECT 80 UNION ALL
+    SELECT 81 UNION ALL SELECT 82 UNION ALL SELECT 83 UNION ALL SELECT 84 UNION ALL SELECT 85 UNION ALL
+    SELECT 86 UNION ALL SELECT 87 UNION ALL SELECT 88 UNION ALL SELECT 89 UNION ALL SELECT 90 UNION ALL
+    SELECT 91 UNION ALL SELECT 92 UNION ALL SELECT 93 UNION ALL SELECT 94 UNION ALL SELECT 95 UNION ALL
+    SELECT 96 UNION ALL SELECT 97 UNION ALL SELECT 98 UNION ALL SELECT 99 UNION ALL SELECT 100 UNION ALL
+    SELECT 101 UNION ALL SELECT 102 UNION ALL SELECT 103 UNION ALL SELECT 104 UNION ALL SELECT 105
+) AS numbers;
+
 
 INSERT INTO retail (
-  price,
   createdAt,
   updatedAt,
   property_id
 )
 SELECT
-  FLOOR(2000 + RAND() * 8001), -- цена от 2000 до 10000
   NOW(),
   NOW(),
-  FLOOR(1 + RAND() * 75) -- property_id (предположим, у тебя 40 объектов недвижимости)
+  FLOOR(1 + RAND() * 75) -- property_id (от 1 до 75)
 FROM
   (SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5
    UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION SELECT 10
@@ -593,4 +622,5 @@ FROM
    UNION SELECT 96 UNION SELECT 97 UNION SELECT 98 UNION SELECT 99 UNION SELECT 100
    UNION SELECT 101 UNION SELECT 102 UNION SELECT 103 UNION SELECT 104 UNION SELECT 105
   ) AS gen;
+
 

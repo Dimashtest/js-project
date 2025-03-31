@@ -3,6 +3,8 @@ const loginForm = document.querySelector('.login-Form');
 const toggleLogin = document.querySelector(".toggleLogin");
 const toggleRegister = document.querySelector(".toggleRegister");
 const guestButton = document.querySelector(".guest");
+const linkRegister = document.querySelector(".linkRegister");
+const linkLogin = document.querySelector(".linkLogin");
 
 if (registerForm) {
     registerForm.addEventListener('submit', async (e) => {
@@ -82,6 +84,20 @@ if (registerForm) {
             });
             console.error(err);
         }
+    });
+}
+
+if (linkRegister) {
+    linkRegister.addEventListener("click", () => {
+        loginForm.classList.add("hidden");
+        registerForm.classList.remove("hidden");
+    });
+}
+
+if (linkLogin) {
+    linkLogin.addEventListener("click", () => {
+        registerForm.classList.add("hidden");
+        loginForm.classList.remove("hidden");
     });
 }
 

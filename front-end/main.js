@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         </p>
                     </div>
                     <div class="flex flex-col items-center justify-center p-5">
-                        <p class="text-gray-800 font-bold text-3xl">${property.price || '—'} ₽</p>
+                        <p class="text-gray-800 font-bold text-3xl">${property.Price?.price || '—'} ₽</p>
                         <p class="text-gray-500">Сутки</p>
                         <button class="border-2 border-blue-500 text-blue-500 px-4 py-2 mt-3 rounded w-36">
                             <a href="./rentinfo.html?id=${property.id}">Смотреть</a>
