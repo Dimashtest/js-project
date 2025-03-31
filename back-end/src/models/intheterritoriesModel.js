@@ -4,7 +4,7 @@ const sequelize = require('../config/db');
 const InTheTerritory = sequelize.define(
     'InTheTerritory',
     {
-        id: {
+        interritory_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true

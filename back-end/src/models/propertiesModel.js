@@ -1,13 +1,15 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+
+// Подключение моделей
 const Location = require('./locationsModel');
-const Retail = require('./retailsModel');
 const DistanceToTheSea = require('./distancetotheseasModel');
 const InTheRoom = require('./intheroomsModel');
 const InTheTerritory = require('./intheterritoriesModel');
 const Near = require('./nearsModel');
 const NumberOfRoom = require('./numberofroomsModels');
 const Service = require('./servicesModel');
+const Price = require('./pricesModel');
 
 const Property = sequelize.define('Property', {
     property_id: {
@@ -26,72 +28,56 @@ const Property = sequelize.define('Property', {
     location_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-            model: 'locations',
-            key: 'location_id'
-        }
+        references: { model: Location, key: 'location_id' }
     },
     distancetothesea_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        references: {
-            model: 'distancetothesea',
-            key: 'distancetothesea_id'
-        }
+        references: { model: DistanceToTheSea, key: 'distancetothesea_id' }
     },
     intheroom_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        references: {
-            model: 'intheroom',
-            key: 'intheroom_id'
-        }
+        references: { model: InTheRoom, key: 'intheroom_id' }
     },
-    id: {
+    interritory_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        references: {
-            model: 'intheterritory',
-            key: 'id'
-        }
+        references: { model: InTheTerritory, key: 'interritory_id' }
     },
     near_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        references: {
-            model: 'near',
-            key: 'near_id'
-        }
+        references: { model: Near, key: 'near_id' }
     },
     numberofrooms_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        references: {
-            model: 'numberofroom',
-            key: 'numberofrooms_id'
-        }
+        references: { model: NumberOfRoom, key: 'numberofrooms_id' }
     },
     service_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        references: {
-            model: 'service',
-            key: 'service_id'
-        }
+        references: { model: Service, key: 'service_id' }
+    },
+    price_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: { model: Price, key: 'price_id' }
     }
 }, {
     tableName: 'properties',
     timestamps: false
 });
 
+// Установка связей
 Property.belongsTo(Location, { foreignKey: 'location_id', as: 'Location' });
 Property.belongsTo(DistanceToTheSea, { foreignKey: 'distancetothesea_id', as: 'DistanceToTheSea' });
-Property.belongsTo(Near, { foreignKey: 'near_id', as: 'Near' });
 Property.belongsTo(InTheRoom, { foreignKey: 'intheroom_id', as: 'InTheRoom' });
-Property.belongsTo(InTheTerritory, { foreignKey: 'id', as: 'InTheTerritory' });
+Property.belongsTo(InTheTerritory, { foreignKey: 'interritory_id', as: 'InTheTerritory' });
+Property.belongsTo(Near, { foreignKey: 'near_id', as: 'Near' });
 Property.belongsTo(NumberOfRoom, { foreignKey: 'numberofrooms_id', as: 'NumberOfRoom' });
 Property.belongsTo(Service, { foreignKey: 'service_id', as: 'Service' });
-
-Property.hasMany(Retail, { foreignKey: 'property_id', as: 'retails' });
+Property.belongsTo(Price, { foreignKey: 'price_id', as: 'Price' });
 
 module.exports = Property;

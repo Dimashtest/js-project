@@ -26,6 +26,7 @@ app.use('/api/near', require('./src/routes/nearsRoutes'))
 app.use('/api/distancetothesea', require('./src/routes/distancetotheseasRoutes'))
 app.use('/api/service', require('./src/routes/servicesRoutes'))
 app.use('/api/numberofroom', require('./src/routes/numberofroomsRoutes'))
+app.use('/api/price', require('./src/routes/pricesRoutes'))
 
 const PORT = process.env.PORT
 

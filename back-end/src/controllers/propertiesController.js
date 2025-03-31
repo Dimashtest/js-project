@@ -6,6 +6,7 @@ const InTheTerritory = require('../models/intheterritoriesModel');
 const Near = require('../models/nearsModel');
 const NumberOfRoom = require('../models/numberofroomsModels');
 const Service = require('../models/servicesModel');
+const Price = require('../models/pricesModel');
 
 module.exports = {
     async createProperty(req, res) {
@@ -16,7 +17,7 @@ module.exports = {
             res.status(500).json({ message: 'Ошибка при создании объекта аренды', error });
         }
     },
-
+    // Получение всех объектов недвижимости с подгруженными данными
     async getAllProperties(req, res) {
         try {
             const properties = await Property.findAll({
@@ -27,9 +28,11 @@ module.exports = {
                     { model: InTheTerritory, as: 'InTheTerritory' },
                     { model: Near, as: 'Near' },
                     { model: NumberOfRoom, as: 'NumberOfRoom' },
-                    { model: Service, as: 'Service' }
+                    { model: Service, as: 'Service' },
+                    { model: Price, as: 'Price' }
                 ]
             });
+
             res.json(properties);
         } catch (error) {
             res.status(500).json({ message: 'Ошибка при получении объектов', error: error.message });

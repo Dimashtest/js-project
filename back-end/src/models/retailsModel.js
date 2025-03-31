@@ -10,10 +10,6 @@ const Retail = sequelize.define(
             primaryKey: true,
             autoIncrement: true
         },
-        price: {
-            type: DataTypes.FLOAT,
-            allowNull: false
-        },
         property_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
