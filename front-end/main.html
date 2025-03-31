@@ -119,7 +119,7 @@
                     <div>
                         <label for="price" class="block text-sm font-medium text-gray-700">Стоимость</label>
                         <input type="range" id="price" name="price" min="0" max="10000" step="100" class="w-full">
-                        <span class="text-sm text-gray-500">От 0 до 10000 ₽</span>
+                        <span id="price-range-text" class="text-sm text-gray-500">От 0 до 10000 ₽</span>
                     </div>
     
                     <div>
@@ -129,11 +129,11 @@
                                 <div class="items-center p-1 flex justify-between">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Отели</span>
                                     </label>
-                                    <span class="text-gray-400 text-sm">35</span>
+                                    <span id="hotels-count" class="text-gray-400 text-sm">0</span>
                                 </div>
                                 
                                 <div class="items-center p-1 flex justify-between">
@@ -142,35 +142,38 @@
                                         <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Квартиры</span>
-                                      </label>
-                                      <span class="text-gray-400 text-sm">110</span>
+                                    </label>
+                                    <span id="apartments-count" class="text-gray-400 text-sm">0</span>
                                 </div>
+                                
                                 <div class="items-center p-1 flex justify-between">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
                                         <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Дома</span>
-                                      </label>
-                                      <span class="text-gray-400 text-sm">240</span>
+                                    </label>
+                                    <span id="houses-count" class="text-gray-400 text-sm">0</span>
                                 </div>
+                                
                                 <div class="items-center p-1 flex justify-between">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
                                         <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Гостевые дома</span>
-                                      </label>
-                                      <span class="text-gray-400 text-sm">87</span>
+                                    </label>
+                                    <span id="guestHouses-count" class="text-gray-400 text-sm">0</span>
                                 </div>
+                                
                                 <div class="items-center p-1 flex justify-between">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
                                         <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Частный сектор</span>
-                                      </label>
-                                      <span class="text-gray-400 text-sm">65</span>
+                                    </label>
+                                    <span id="privateSector-count" class="text-gray-400 text-sm">0</span>
                                 </div>
                             </div>
                         </div>

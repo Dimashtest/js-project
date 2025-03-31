@@ -37,5 +37,25 @@ module.exports = {
         } catch (error) {
             res.status(500).json({ message: 'Ошибка при получении объектов', error: error.message });
         }
+    },
+    async getPropertyCounts(req, res) {
+        try {
+            // Прямо запросим количество объектов по типам
+            const hotelsCount = await Property.count({ where: { type: 'hotel' } });
+            const apartmentsCount = await Property.count({ where: { type: 'apartment' } });
+            const housesCount = await Property.count({ where: { type: 'house' } });
+            const guestHousesCount = await Property.count({ where: { type: 'guest_houses' } });
+            const privateSectorCount = await Property.count({ where: { type: 'private_sector' } });
+
+            res.json({
+                hotels: hotelsCount,
+                apartments: apartmentsCount,
+                houses: housesCount,
+                guestHouses: guestHousesCount,
+                privateSector: privateSectorCount
+            });
+        } catch (error) {
+            res.status(500).json({ message: 'Ошибка при получении данных', error: error.message });
+        }
     }
 };

@@ -4,5 +4,6 @@ const propertyController = require('../controllers/propertiesController')
 
 router.post('/', propertyController.createProperty)
 router.get('/', propertyController.getAllProperties)
+router.get('/property-counts', propertyController.getPropertyCounts);
 
 module.exports = router
