@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Все аренды</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./main.js" defer></script>
+    <link rel="icon" type="image/png" href="./img/sale.svg">
+
 </head>
+
 <body class="bg-no-repeat bg-top z-10 bg-white bg-[url(./img/indexbg.png)]">
     <header
         class="fixed top-0 left-0 w-full bg-black/60 backdrop-blur-md px-[150px] justify-between max-w-full mx-auto py-4 flex items-center text-white z-20">
@@ -110,9 +114,9 @@
                 </div>
             </div>
     </section>
-    <section class="flex justify-center gap-5 p-6 mt-[40px]"> 
+    <section class="flex justify-center gap-5 p-6 mt-[40px]">
         <div class="flex flex-col gap-3">
-    <!-- Блок с фильтрами -->
+            <!-- Блок с фильтрами -->
             <div class="p-4 bg-white shadow-lg rounded-lg w-[250px] min-w-[500px] max-w-[250px] ml-[100px]">
                 <h3 class="text-lg font-semibold mb-3 text-xl">Фильтры</h3>
                 <div class="flex flex-col gap-4">
@@ -121,55 +125,61 @@
                         <input type="range" id="price" name="price" min="0" max="10000" step="100" class="w-full">
                         <span id="price-range-text" class="text-sm text-gray-500">От 0 до 10000 ₽</span>
                     </div>
-    
+
                     <div>
-                        <label class="block text-sm font-medium text-black text-xl mb-[10px]">Варианты размещения</label>
+                        <label class="block text-sm font-medium text-black text-xl mb-[10px]">Варианты
+                            размещения</label>
                         <div class="flex flex-col">
                             <div class="gap-4">
                                 <div class="items-center p-1 flex justify-between">
                                     <label class="flex items-center cursor-pointer">
-                                        <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <input type="checkbox" class="peer hidden" id="hotel-checkbox">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Отели</span>
                                     </label>
                                     <span id="hotels-count" class="text-gray-400 text-sm">0</span>
                                 </div>
-                                
+
                                 <div class="items-center p-1 flex justify-between">
                                     <label class="flex items-center cursor-pointer">
-                                        <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <input type="checkbox" class="peer hidden" id="apartment-checkbox">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Квартиры</span>
                                     </label>
                                     <span id="apartments-count" class="text-gray-400 text-sm">0</span>
                                 </div>
-                                
+
                                 <div class="items-center p-1 flex justify-between">
                                     <label class="flex items-center cursor-pointer">
-                                        <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <input type="checkbox" class="peer hidden" id="house-checkbox">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Дома</span>
                                     </label>
                                     <span id="houses-count" class="text-gray-400 text-sm">0</span>
                                 </div>
-                                
+
                                 <div class="items-center p-1 flex justify-between">
                                     <label class="flex items-center cursor-pointer">
-                                        <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <input type="checkbox" class="peer hidden" id="guest-house-checkbox">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Гостевые дома</span>
                                     </label>
                                     <span id="guestHouses-count" class="text-gray-400 text-sm">0</span>
                                 </div>
-                                
+
                                 <div class="items-center p-1 flex justify-between">
                                     <label class="flex items-center cursor-pointer">
-                                        <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <input type="checkbox" class="peer hidden" id="private-sector-checkbox">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Частный сектор</span>
                                     </label>
@@ -178,10 +188,11 @@
                             </div>
                         </div>
                     </div>
-    
-                    <div>
+
+                    <!-- <div>
                         <div>
-                            <label for="rooms" class="block text-sm font-medium text-black text-xl mb-[10px]">Количество комнат</label>
+                            <label for="rooms" class="block text-sm font-medium text-black text-xl mb-[10px]">Количество
+                                комнат</label>
                             <select id="rooms" name="rooms" class="w-full border rounded p-2">
                                 <option value="" selected disabled hidden>Любое</option>
                                 <option value="1">1 комната</option>
@@ -190,69 +201,66 @@
                                 <option value="4">4 комнаты</option>
                             </select>
                         </div>
-                        
-                    </div>
-    
-    
-                    <div>
-                        <label for="rooms" class="block text-sm font-medium text-gray-700">Количество двухспальных кроватей</label>
-                        <select id="rooms" name="rooms" class="w-full border rounded p-2">
-                            <option value="" selected disabled hidden>Выберите</option>
-                            <option value="1">1 кровать</option>
-                            <option value="2">2 кровати</option>
-                            <option value="3">3 кровати</option>
-                            <option value="4">4 кровати</option>
-                        </select>
-                    </div>
-    
-                    <div>
-                        <label for="rooms" class="block text-sm font-medium text-gray-700">Количество раздельных кроватей</label>
-                        <select id="rooms" name="rooms" class="w-full border rounded p-2">
-                            <option value="" selected disabled hidden>Выберите</option>
-                            <option value="1">1 кровать</option>
-                            <option value="2">2 кровати</option>
-                            <option value="3">3 кровати</option>
-                            <option value="4">4 кровати</option>
-                        </select>
-                    </div>
-    
-                    <div>
-                        <label for="rooms" class="block text-sm font-medium text-black text-xl mb-[10px]">Расстояние до моря</label>
-                        <select id="rooms" name="rooms" class="w-full border rounded p-2">
-                            <option value="" selected disabled hidden>Выберите</option>
-                            <option value="1">1 береговая линия</option>
-                            <option value="2">2 береговая линия</option>
-                            <option value="3">3 береговая линия</option>
-                            <option value="4">4 береговая линия</option>
-                            <option value="5">200 метров до пляжа</option>
-                            <option value="6">300 метров до пляжа</option>
-                        </select>
-                    </div>
-    
+
+                    </div> -->
+
+
+                    <label for="double-beds" class="block text-sm font-medium text-gray-700">Количество двухспальных
+                        кроватей</label>
+                    <select id="double-beds" class="w-full border rounded p-2">
+                        <option value="" selected disabled hidden>Выберите</option>
+                        <option value="1">1 кровать</option>
+                        <option value="2">2 кровати</option>
+                        <option value="3">3 кровати</option>
+                        <option value="4">4 кровати</option>
+                        <option value="5">5 кровати</option>
+                    </select>
+
+                    <label for="split-beds" class="block text-sm font-medium text-gray-700">Количество раздельных
+                        кроватей</label>
+                    <select id="split-beds" class="w-full border rounded p-2">
+                        <option value="" selected disabled hidden>Выберите</option>
+                        <option value="1">1 кровать</option>
+                        <option value="2">2 кровати</option>
+                        <option value="3">3 кровати</option>
+                        <option value="4">4 кровати</option>
+                        <option value="5">5 кровати</option>
+                    </select>
+
+                    <label for="distance-to-sea"
+                        class="block text-sm font-medium text-black text-xl mb-[10px]">Расстояние до моря</label>
+                    <select id="distance-to-sea" class="w-full border rounded p-2">
+                        <option value="" selected disabled hidden>Выберите</option>
+                        <option value="1">До 100 м</option>
+                        <option value="2">100–300 м</option>
+                        <option value="3">300–500 м</option>
+                        <option value="4">500–700 м</option>
+                        <option value="5">700 м – 1 км</option>
+                        <option value="6">1–2 км</option>
+                    </select>
                     <div>
                         <label class="block text-sm font-medium text-black text-xl mb-[10px]">В помещении</label>
                         <div class="flex flex-col">
                             <div class="gap-4">
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
-                                        <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
-                                        </div>
+                                        <input type="checkbox" class="peer hidden" id="wifi-checkbox">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center"></div>
                                         <span class="ml-2 text-gray-700">Интернет Wi-Fi</span>
                                     </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
-                                        <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
-                                        </div>
+                                        <input type="checkbox" class="peer hidden" id="ac-checkbox">
+                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center"></div>
                                         <span class="ml-2 text-gray-700">Кондиционер</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Холодильник</span>
                                     </label>
@@ -260,111 +268,124 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Стиральная машина</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Кухня</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Балкон / Лоджия</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Джакузи</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Сауна / Баня</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Терраса</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Микроволновка</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Фен</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Утюг с гладильной доской</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Телевизор</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Электрочайник</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Посуда и принадлежности</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Полотенца</span>
-                                      </label>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-    
+
                     <div>
                         <label class="block text-sm font-medium text-black text-xl mb-[10px]">На территории</label>
                         <div class="flex flex-col">
@@ -372,7 +393,8 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Парковка</span>
                                     </label>
@@ -380,15 +402,17 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Беседка</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Мангал</span>
                                     </label>
@@ -396,23 +420,25 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Мебель</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Бассейн</span>
-                                      </label>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-    
+
                     <div>
                         <label class="block text-sm font-medium text-black text-xl mb-[10px]">Рядом</label>
                         <div class="flex flex-col">
@@ -420,7 +446,8 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Ночной клуб</span>
                                     </label>
@@ -428,15 +455,17 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">SPA / Оздоровление</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Бар / Ресторан</span>
                                     </label>
@@ -444,15 +473,16 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Жилье в частном секторе</span>
-                                      </label>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-    
+
                     <div>
                         <label class="block text-sm font-medium text-black text-xl mb-[10px]">Правила дома</label>
                         <div class="flex flex-col">
@@ -460,7 +490,8 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Курение разрешено</span>
                                     </label>
@@ -468,15 +499,17 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Вечеринки разрешены</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Можно с животными</span>
                                     </label>
@@ -484,15 +517,16 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Самоизоляция разрешена</span>
-                                      </label>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-    
+
                     <div>
                         <label class="block text-sm font-medium text-black text-xl mb-[10px]">Удобства и услуги</label>
                         <div class="flex flex-col">
@@ -500,7 +534,8 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Бесконтактное заселение</span>
                                     </label>
@@ -508,15 +543,17 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Трансфер</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Круглосуточная стойка регистрации</span>
                                     </label>
@@ -524,45 +561,56 @@
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Отчетные документы</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Лифт</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Доступ для инвалидов</span>
-                                      </label>
+                                    </label>
                                 </div>
                                 <div class="items-center p-1">
                                     <label class="flex items-center cursor-pointer">
                                         <input type="checkbox" class="peer hidden">
-                                        <div class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
+                                        <div
+                                            class="w-6 h-6 border-2 border-gray-400 rounded-md peer-checked:border-blue-500 peer-checked:bg-gradient-to-r from-blue-400 to-blue-700 border-blue-500 flex items-center justify-center">
                                         </div>
                                         <span class="ml-2 text-gray-700">Быстрая связь</span>
-                                      </label>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="mt-4 w-full py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded">Применить фильтры</button>
-                    <button class=" w-full py-2 border-2 border-blue-500 text-blue-500 rounded">Сбросить фильтры</button>
+                    <button id="apply-filters"
+                        class="mt-4 w-full py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded">Применить
+                        фильтры</button>
+                    <button id="reset-filters"
+                        class="w-full py-2 border-2 border-blue-500 text-blue-500 rounded">Сбросить фильтры</button>
                 </div>
             </div>
         </div>
-    <!-- Блок с квартирами -->
+        <!-- Блок с квартирами -->
         <div class="w-3/4 flex flex-col gap-4 w-[800px]">
+            <div class="flex items-center gap-2 cursor-pointer text-lg font-semibold text-gray-700" id="sort-button">
+                <span>Сортировка по цене</span>
+                <span id="sort-arrow">↻</span> <!-- Начальная стрелка (рандом) -->
+            </div>
             <div id="property-list" class="grid gap-6"></div>
             <div id="pagination" class="flex gap-5 justify-center mt-5"></div>
             <div class="h-[250px] bg-gray-200 rounded-[10px] p-2 flex flex-col gap-4">
@@ -570,14 +618,17 @@
                 <p class="text-gray-600 px-11">Оставьте заявку на индивидуальный подбор</p>
                 <p class="text-gray-600 px-11">С вами свяжеться наш менеджер и подберет идеальное жилье</p>
                 <div class="flex justify-around p-4">
-                    <input class="w-[150px] h-[50px] p-5 border-white bg-white rounded-[5px]" type="text" placeholder="Имя">
-                    <input class="w-[250px] h-[50px] p-5 border-white bg-white rounded-[5px]" type="text" placeholder="Телефон">
-                    <button  class="w-[200px] bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded ">Подобрать жилье</button>
+                    <input class="w-[150px] h-[50px] p-5 border-white bg-white rounded-[5px]" type="text"
+                        placeholder="Имя">
+                    <input class="w-[250px] h-[50px] p-5 border-white bg-white rounded-[5px]" type="text"
+                        placeholder="Телефон">
+                    <button class="w-[200px] bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded ">Подобрать
+                        жилье</button>
                 </div>
             </div>
         </div>
     </section>
-    
+
 
     <section>
         <div class="flex justify-between">
@@ -630,4 +681,5 @@
         </div>
     </footer>
 </body>
+
 </html>

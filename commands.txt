@@ -624,3 +624,85 @@ FROM
   ) AS gen;
 
 
+// ✅ Функция для подсчета типов недвижимости
+    async function fetchPropertyCounts() {
+        try {
+            const response = await fetch('http://localhost:4000/api/properties');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const properties = await response.json();
+
+            const counts = {
+                hotels: 0,
+                apartments: 0,
+                houses: 0,
+                guestHouses: 0,
+                privateSector: 0,
+            };
+
+            properties.forEach(property => {
+                switch (property.type) {
+                    case 'hotel':
+                        counts.hotels++;
+                        break;
+                    case 'apartment':
+                        counts.apartments++;
+                        break;
+                    case 'house':
+                        counts.houses++;
+                        break;
+                    case 'guest_houses':
+                        counts.guestHouses++;
+                        break;
+                    case 'private_sector':
+                        counts.privateSector++;
+                        break;
+                }
+            });
+
+            // Обновляем отображение счетчиков
+            document.getElementById('hotels-count').textContent = counts.hotels;
+            document.getElementById('apartments-count').textContent = counts.apartments;
+            document.getElementById('houses-count').textContent = counts.houses;
+            document.getElementById('guestHouses-count').textContent = counts.guestHouses;
+            document.getElementById('privateSector-count').textContent = counts.privateSector;
+
+        } catch (error) {
+            console.error('Ошибка при получении данных:', error.message);
+        }
+    }
+
+
+    // ✅ Функция для сортировки по цене
+    function toggleSort() {
+        if (sortOrder === "random") {
+            sortOrder = "asc";
+            filteredProperties.sort((a, b) => a.Price?.price - b.Price?.price);
+        } else if (sortOrder === "asc") {
+            sortOrder = "desc";
+            filteredProperties.sort((a, b) => b.Price?.price - a.Price?.price);
+        } else {
+            sortOrder = "random";
+            filteredProperties = shuffleArray(filteredProperties);
+        }
+
+        updateSortArrow();
+        currentPage = 1;
+        renderProperties();
+        renderPagination();
+    }
+
+    // ✅ Обновление стрелки сортировки
+    function updateSortArrow() {
+        const arrow = document.getElementById("sort-arrow");
+        if (sortOrder === "asc") {
+            arrow.innerHTML = "↑"; // Вверх
+        } else if (sortOrder === "desc") {
+            arrow.innerHTML = "↓"; // Вниз
+        } else {
+            arrow.innerHTML = "↻"; // Рандом
+        }
+    }
