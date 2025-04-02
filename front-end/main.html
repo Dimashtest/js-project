@@ -42,47 +42,52 @@
 
 
     <section
-        class="h-full flex flex-col mt-[170px] justify-center text-white items-center gap-3 text-center px-[150px] z-20">
-        <div class="flex flex-col">
-            <h1 class="text-4xl font-bold">ЖИЛЬЕ НА ЮЖНОМ БЕРЕГУ КРЫМА ПО САМЫМ ЛУЧШИМ ЦЕНАМ</h1>
-            <p class="text-lg mt-5">Более 150 000 объявлений – комиссия 0%</p>
+    class="h-full flex flex-col mt-[170px] justify-center text-white items-center gap-3 text-center px-[150px] z-20">
+    <div class="flex flex-col">
+        <h1 class="text-4xl font-bold">ЖИЛЬЕ НА ЮЖНОМ БЕРЕГУ КРЫМА ПО САМЫМ ЛУЧШИМ ЦЕНАМ</h1>
+        <p class="text-lg mt-5">Более 150 000 объявлений – комиссия 0%</p>
+    </div>
+    <div class="mt-6 bg-black/50 p-6 rounded-lg shadow-lg flex flex-wrap gap-4 justify-center relative">
+        <div class="relative w-40">
+            <input id="cityInput" required type="text" placeholder="Город"
+                class="px-4 py-2 rounded-md bg-white text-black w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <div id="cityDropdown"
+                class="absolute top-full left-0 w-full bg-white border border-gray-300 rounded shadow-lg hidden text-black z-20">
+            </div>
         </div>
-        <div class="mt-6 bg-black/50 p-6 rounded-lg shadow-lg flex flex-wrap gap-4 justify-center ">
-            <input type="text" placeholder="Город"
-                class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <input type="text" id="check-in"
-                class="px-4 rounded-md bg-white text-black w-40 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Выбор даты" onclick="this.type='date'">
-            <span class="absolute left-3 top-3 text-gray-500 pointer-events-none"></span>
-            <input type="text" id="check-out"
-                class="px-4 rounded-md bg-white text-black w-40 border shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Обратная дата" onclick="this.type='date'">
-            <span class="absolute left-3 top-3 text-gray-500 pointer-events-none"></span>
 
-            <select id="guestsSelectOne"
-                class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
-                <option value="" disabled selected>Гости</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
+        <input type="date" id="check-in" required
+            class="px-4 rounded-md bg-white text-black w-40 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Выбор даты">
+        <input type="date" id="check-out"
+            class="px-4 rounded-md bg-white text-black w-40 border shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Обратная дата">
 
-            <select id="guestsSelectTwo"
-                class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
-                <option value="" disabled selected>Номер</option>
-                <option value="1">1 комнатная</option>
-                <option value="2">2 комнатная</option>
-                <option value="3">3 комнатная</option>
-                <option value="4">4 комнатная</option>
-                <option value="5">5 комнатная</option>
-            </select>
-            <button class="bg-blue-500 text-white px-6 py-2 rounded-md shadow-md hover:bg-blue-600 transition">Найти
-                жилье</button>
-        </div>
-        <div class="absolute inset-0 h-[532px] bg-black opacity-50 z-[-1]"></div>
-    </section>
+        <select id="guestsSelectOne" required
+            class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
+            <option value="" disabled selected>Гости</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <select id="guestsSelectTwo" required
+            class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
+            <option value="" disabled selected>Номер</option>
+            <option value="1">1 комнатная</option>
+            <option value="2">2 комнатная</option>
+            <option value="3">3 комнатная</option>
+            <option value="4">4 комнатная</option>
+            <option value="5">5 комнатная</option>
+        </select>
+
+        <button class="bg-blue-500 text-white px-6 py-2 rounded-md shadow-md hover:bg-blue-600 transition"
+            onclick="window.location='main.html';">Найти жилье</button>
+    </div>
+    <div class="absolute inset-0 h-[532px] bg-black opacity-50 z-[-1]"></div>
+</section>
     <section>
         <div class="relative h-40 overflow-hidden mt-[-10px]">
             <div

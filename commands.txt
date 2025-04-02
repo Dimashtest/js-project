@@ -122,114 +122,10 @@ INSERT INTO locations (city, street, house_number) VALUES
 ('Виноградное', 'Шоссейная', '12А');
 
 
-INSERT INTO properties (
-  name, 
-  type, 
-  location_id, 
-  near_id, 
-  intheroom_id, 
-  interritory_id, 
-  numberofrooms_id, 
-  service_id, 
-  distancetothesea_id, 
-  price_id
-)
-SELECT 
-  name, 
-  type, 
-  (SELECT location_id FROM locations ORDER BY RAND() LIMIT 1),
-  (SELECT near_id FROM near ORDER BY RAND() LIMIT 1),
-  (SELECT intheroom_id FROM intheroom ORDER BY RAND() LIMIT 1),
-  (SELECT interritory_id FROM intheterritory ORDER BY RAND() LIMIT 1),
-  (SELECT numberofrooms_id FROM numberofroom ORDER BY RAND() LIMIT 1),
-  (SELECT service_id FROM service ORDER BY RAND() LIMIT 1),
-  (SELECT distancetothesea_id FROM distancetothesea ORDER BY RAND() LIMIT 1),
-  (SELECT price_id FROM price ORDER BY RAND() LIMIT 1)
-FROM (
-  SELECT 'Отель Арбат' AS name, 'hotel' AS type UNION ALL
-  SELECT 'Гранд Отель', 'hotel' UNION ALL
-  SELECT 'Отель Центральный', 'hotel' UNION ALL
-  SELECT 'Парк Отель', 'hotel' UNION ALL
-  SELECT 'Отель Лотос', 'hotel' UNION ALL
-  SELECT 'Отель Калипсо', 'hotel' UNION ALL
-  SELECT 'Отель Премьер', 'hotel' UNION ALL
-  SELECT 'Отель Маяк', 'hotel' UNION ALL
-  SELECT 'Отель Сказка', 'hotel' UNION ALL
-  SELECT 'Отель Визит', 'hotel' UNION ALL
-  SELECT 'Отель Гамма', 'hotel' UNION ALL
-  SELECT 'Отель Палас', 'hotel' UNION ALL
-  SELECT 'Отель Звезда', 'hotel' UNION ALL
-  SELECT 'Отель Элит', 'hotel' UNION ALL
-  SELECT 'Отель Лагуна', 'hotel' UNION ALL
-  SELECT 'Дом у моря', 'house' UNION ALL
-  SELECT 'Коттедж Сосновый бор', 'house' UNION ALL
-  SELECT 'Дом в лесу', 'house' UNION ALL
-  SELECT 'Вилла Солнечная', 'house' UNION ALL
-  SELECT 'Коттедж Уют', 'house' UNION ALL
-  SELECT 'Дом на берегу', 'house' UNION ALL
-  SELECT 'Загородный дом', 'house' UNION ALL
-  SELECT 'Дом Лесной', 'house' UNION ALL
-  SELECT 'Коттедж Прованс', 'house' UNION ALL
-  SELECT 'Вилла Дача', 'house' UNION ALL
-  SELECT 'Домик в деревне', 'house' UNION ALL
-  SELECT 'Дом Сказка', 'house' UNION ALL
-  SELECT 'Коттедж Комфорт', 'house' UNION ALL
-  SELECT 'Вилла Лето', 'house' UNION ALL
-  SELECT 'Дом Панорама', 'house' UNION ALL
-  SELECT 'Квартира на Ленина', 'apartment' UNION ALL
-  SELECT 'Апартаменты Центр', 'apartment' UNION ALL
-  SELECT 'Студия у парка', 'apartment' UNION ALL
-  SELECT 'Квартира с видом на море', 'apartment' UNION ALL
-  SELECT 'Апартаменты Комфорт', 'apartment' UNION ALL
-  SELECT 'Квартира на Победы', 'apartment' UNION ALL
-  SELECT 'Студия Арт', 'apartment' UNION ALL
-  SELECT 'Апартаменты Сити', 'apartment' UNION ALL
-  SELECT 'Квартира Панорама', 'apartment' UNION ALL
-  SELECT 'Квартира Уют', 'apartment' UNION ALL
-  SELECT 'Апартаменты Лайт', 'apartment' UNION ALL
-  SELECT 'Квартира на Октябрьской', 'apartment' UNION ALL
-  SELECT 'Апартаменты Лофт', 'apartment' UNION ALL
-  SELECT 'Квартира Элит', 'apartment' UNION ALL
-  SELECT 'Квартира Сканди', 'apartment' UNION ALL
-  SELECT 'Гостевой дом Лазурь', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Виктория', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Уют', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Ривьера', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Мечта', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Морской', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Летний', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Престиж', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Светлый', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Надежда', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Радуга', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Зенит', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Олива', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Олимп', 'guest_houses' UNION ALL
-  SELECT 'Гостевой дом Сказка', 'guest_houses' UNION ALL
-  SELECT 'Частный сектор на Гагарина', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Уютный двор', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Морской бриз', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Лесная поляна', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Солнечный', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Светлана', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Набережная', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Арт-дом', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Зелёный уголок', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Комфорт', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Мира', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Радость', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Фазенда', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Южный', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Панорама', 'private_sector'
-) AS all_props;
-
-
-
-ALTER TABLE distancetothesea MODIFY COLUMN distance VARCHAR(100);
 
 INSERT INTO distancetothesea (distance)
 VALUES 
-('До 100 м'),
+('меньще 100 м'),
 ('100–300 м'),
 ('300–500 м'),
 ('500–700 м'),
@@ -238,12 +134,7 @@ VALUES
 ('2–3 км'),
 ('3–5 км'),
 ('5–7 км'),
-('Более 7 км'),
-('Первая линия'),
-('Вторая линия'),
-('До пляжа 5 мин'),
-('До пляжа 10 мин'),
-('Пешком до пляжа 15 мин');
+('более 7 км')
 
 
 INSERT INTO numberofroom (numberofbeds, numberofsplitedbeds)
@@ -588,6 +479,110 @@ FROM (
     SELECT 96 UNION ALL SELECT 97 UNION ALL SELECT 98 UNION ALL SELECT 99 UNION ALL SELECT 100 UNION ALL
     SELECT 101 UNION ALL SELECT 102 UNION ALL SELECT 103 UNION ALL SELECT 104 UNION ALL SELECT 105
 ) AS numbers;
+
+
+
+
+INSERT INTO properties (
+  name, 
+  type, 
+  location_id, 
+  near_id, 
+  intheroom_id, 
+  interritory_id, 
+  numberofrooms_id, 
+  service_id, 
+  distancetothesea_id, 
+  price_id
+)
+SELECT 
+  name, 
+  type, 
+  (SELECT location_id FROM locations ORDER BY RAND() LIMIT 1),
+  (SELECT near_id FROM near ORDER BY RAND() LIMIT 1),
+  (SELECT intheroom_id FROM intheroom ORDER BY RAND() LIMIT 1),
+  (SELECT interritory_id FROM intheterritory ORDER BY RAND() LIMIT 1),
+  (SELECT numberofrooms_id FROM numberofroom ORDER BY RAND() LIMIT 1),
+  (SELECT service_id FROM service ORDER BY RAND() LIMIT 1),
+  (SELECT distancetothesea_id FROM distancetothesea ORDER BY RAND() LIMIT 1),
+  (SELECT price_id FROM price ORDER BY RAND() LIMIT 1)
+FROM (
+  SELECT 'Отель Арбат' AS name, 'hotel' AS type UNION ALL
+  SELECT 'Гранд Отель', 'hotel' UNION ALL
+  SELECT 'Отель Центральный', 'hotel' UNION ALL
+  SELECT 'Парк Отель', 'hotel' UNION ALL
+  SELECT 'Отель Лотос', 'hotel' UNION ALL
+  SELECT 'Отель Калипсо', 'hotel' UNION ALL
+  SELECT 'Отель Премьер', 'hotel' UNION ALL
+  SELECT 'Отель Маяк', 'hotel' UNION ALL
+  SELECT 'Отель Сказка', 'hotel' UNION ALL
+  SELECT 'Отель Визит', 'hotel' UNION ALL
+  SELECT 'Отель Гамма', 'hotel' UNION ALL
+  SELECT 'Отель Палас', 'hotel' UNION ALL
+  SELECT 'Отель Звезда', 'hotel' UNION ALL
+  SELECT 'Отель Элит', 'hotel' UNION ALL
+  SELECT 'Отель Лагуна', 'hotel' UNION ALL
+  SELECT 'Дом у моря', 'house' UNION ALL
+  SELECT 'Коттедж Сосновый бор', 'house' UNION ALL
+  SELECT 'Дом в лесу', 'house' UNION ALL
+  SELECT 'Вилла Солнечная', 'house' UNION ALL
+  SELECT 'Коттедж Уют', 'house' UNION ALL
+  SELECT 'Дом на берегу', 'house' UNION ALL
+  SELECT 'Загородный дом', 'house' UNION ALL
+  SELECT 'Дом Лесной', 'house' UNION ALL
+  SELECT 'Коттедж Прованс', 'house' UNION ALL
+  SELECT 'Вилла Дача', 'house' UNION ALL
+  SELECT 'Домик в деревне', 'house' UNION ALL
+  SELECT 'Дом Сказка', 'house' UNION ALL
+  SELECT 'Коттедж Комфорт', 'house' UNION ALL
+  SELECT 'Вилла Лето', 'house' UNION ALL
+  SELECT 'Дом Панорама', 'house' UNION ALL
+  SELECT 'Квартира на Ленина', 'apartment' UNION ALL
+  SELECT 'Апартаменты Центр', 'apartment' UNION ALL
+  SELECT 'Студия у парка', 'apartment' UNION ALL
+  SELECT 'Квартира с видом на море', 'apartment' UNION ALL
+  SELECT 'Апартаменты Комфорт', 'apartment' UNION ALL
+  SELECT 'Квартира на Победы', 'apartment' UNION ALL
+  SELECT 'Студия Арт', 'apartment' UNION ALL
+  SELECT 'Апартаменты Сити', 'apartment' UNION ALL
+  SELECT 'Квартира Панорама', 'apartment' UNION ALL
+  SELECT 'Квартира Уют', 'apartment' UNION ALL
+  SELECT 'Апартаменты Лайт', 'apartment' UNION ALL
+  SELECT 'Квартира на Октябрьской', 'apartment' UNION ALL
+  SELECT 'Апартаменты Лофт', 'apartment' UNION ALL
+  SELECT 'Квартира Элит', 'apartment' UNION ALL
+  SELECT 'Квартира Сканди', 'apartment' UNION ALL
+  SELECT 'Гостевой дом Лазурь', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Виктория', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Уют', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Ривьера', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Мечта', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Морской', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Летний', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Престиж', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Светлый', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Надежда', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Радуга', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Зенит', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Олива', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Олимп', 'guest_houses' UNION ALL
+  SELECT 'Гостевой дом Сказка', 'guest_houses' UNION ALL
+  SELECT 'Частный сектор на Гагарина', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Уютный двор', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Морской бриз', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Лесная поляна', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Солнечный', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Светлана', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Набережная', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Арт-дом', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Зелёный уголок', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Комфорт', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Мира', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Радость', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Фазенда', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Южный', 'private_sector' UNION ALL
+  SELECT 'Частный сектор Панорама', 'private_sector'
+) AS all_props;
 
 
 INSERT INTO retail (

@@ -1,21 +1,31 @@
-const registerForm = document.querySelector('.registerForm');
 const loginForm = document.querySelector('.login-Form');
 const toggleLogin = document.querySelector(".toggleLogin");
 const toggleRegister = document.querySelector(".toggleRegister");
 const guestButton = document.querySelector(".guest");
 const linkRegister = document.querySelector(".linkRegister");
 const linkLogin = document.querySelector(".linkLogin");
+const registerFormDiv = document.querySelector('.registerForm'); // Получаем div
+const registerForm = registerFormDiv.querySelector('form'); // Получаем form внутри div
+
+function showLoginForm() {
+    if (loginForm) {
+        loginForm.classList.remove('hidden');
+    }
+    if (registerFormDiv) {
+        registerFormDiv.classList.add('hidden');
+    }
+}
 
 if (registerForm) {
     registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Получаем значения полей
-        const name = registerForm.name?.value;
-        const surname = registerForm.surname?.value;
-        const email = registerForm.email?.value;
-        const password = registerForm.password?.value;
-        const confirmPassword = registerForm.confirmPassword?.value;
+        const name = registerForm.name.value;
+        const surname = registerForm.surname.value;
+        const email = registerForm.email.value;
+        const password = registerForm.password.value;
+        const confirmPassword = registerForm.confirmPassword.value;
 
         // Логируем значения для отладки
         console.log('name:', name);
@@ -45,7 +55,7 @@ if (registerForm) {
         }
 
         try {
-            const res = await fetch(`http://localhost:4000/api/auth/register`, {
+            const res = await fetch('http://localhost:4000/api/auth/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -86,7 +96,6 @@ if (registerForm) {
         }
     });
 }
-
 if (linkRegister) {
     linkRegister.addEventListener("click", () => {
         loginForm.classList.add("hidden");

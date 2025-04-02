@@ -48,21 +48,21 @@
     </div>
     <div class="mt-6 bg-black/50 p-6 rounded-lg shadow-lg flex flex-wrap gap-4 justify-center relative">
         <div class="relative w-40">
-            <input id="cityInput" type="text" placeholder="Город"
+            <input id="cityInput" required type="text" placeholder="Город"
                 class="px-4 py-2 rounded-md bg-white text-black w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
             <div id="cityDropdown"
                 class="absolute top-full left-0 w-full bg-white border border-gray-300 rounded shadow-lg hidden text-black z-20">
             </div>
         </div>
 
-        <input type="date" id="check-in"
+        <input type="date" id="check-in" required
             class="px-4 rounded-md bg-white text-black w-40 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Выбор даты">
         <input type="date" id="check-out"
             class="px-4 rounded-md bg-white text-black w-40 border shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Обратная дата">
 
-        <select id="guestsSelectOne"
+        <select id="guestsSelectOne" required
             class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
             <option value="" disabled selected>Гости</option>
             <option value="1">1</option>
@@ -72,7 +72,7 @@
             <option value="5">5</option>
         </select>
 
-        <select id="guestsSelectTwo"
+        <select id="guestsSelectTwo" required
             class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
             <option value="" disabled selected>Номер</option>
             <option value="1">1 комнатная</option>
@@ -83,7 +83,7 @@
         </select>
 
         <button class="bg-blue-500 text-white px-6 py-2 rounded-md shadow-md hover:bg-blue-600 transition"
-            onclick="window.location='findhouse.html';">Найти жилье</button>
+            onclick="window.location='main.html';">Найти жилье</button>
     </div>
     <div class="absolute inset-0 h-[532px] bg-black opacity-50 z-[-1]"></div>
 </section>

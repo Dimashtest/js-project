@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <p class="text-gray-500">До моря ${property.DistanceToTheSea?.distance}</p>
                     <p class="text-gray-600">${property.Location?.city || 'Город неизвестен'}, ${property.Location?.street || 'Улица неизвестна'}</p>
                     <p class="text-blue-500 text-sm mt-2">
-                        ${property.area || '—'} м² | ${property.NumberOfRoom?.numberofsplitedbeds || '—'} гостя | ${property.NumberOfRoom?.numberofbeds || '—'} спальня | ${property.beds || '—'} кровать
+                        ${property.area || '—'} м² | ${property.beds || '—'} комнат | ${property.NumberOfRoom?.numberofsplitedbeds || '—'} раздельных кроватей | ${property.NumberOfRoom?.numberofbeds || '—'} кроватей
                     </p>
                 </div>
                 <div class="flex flex-col items-center justify-center p-5">
@@ -323,4 +323,79 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // ✅ Загрузка данных
     fetchData();
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const cities = [
+        "Ялта", "Гурфуз", "Гаспра", "Массандра", "Никита", 
+        "Ливадия", "Виноградное"
+    ];
+
+    const input = document.getElementById("cityInput");
+    const dropdown = document.getElementById("cityDropdown");
+
+    input.addEventListener("input", function () {
+        const query = input.value.toLowerCase();
+        dropdown.innerHTML = "";
+
+        if (query.length === 0) {
+            dropdown.classList.add("hidden");
+            return;
+        }
+
+        const filteredCities = cities.filter(city => city.toLowerCase().includes(query));
+
+        if (filteredCities.length === 0) {
+            dropdown.classList.add("hidden");
+            return;
+        }
+
+        dropdown.classList.remove("hidden");
+
+        filteredCities.forEach(city => {
+            const option = document.createElement("div");
+            option.textContent = city;
+            option.classList.add(
+                "p-2", "cursor-pointer", "hover:bg-blue-100", "hover:text-blue-600",
+                "transition", "duration-200", "rounded"
+            );
+
+            option.addEventListener("click", function () {
+                input.value = city;
+                dropdown.classList.add("hidden");
+            });
+
+            dropdown.appendChild(option);
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!input.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.classList.add("hidden");
+        }
+    });
+});
+// Блок с датами
+document.addEventListener("DOMContentLoaded", function () {
+    const checkInInput = document.getElementById("check-in");
+    const checkOutInput = document.getElementById("check-out");
+
+    let formatDate = (date) => date.toISOString().split("T")[0];
+
+    let today = new Date();
+    let maxDate = new Date();
+    maxDate.setDate(today.getDate() + 7);
+
+    checkInInput.setAttribute("min", formatDate(today));
+    checkInInput.setAttribute("max", formatDate(maxDate));
+
+    checkInInput.addEventListener("change", function () {
+        let selectedDate = new Date(this.value);
+        let maxCheckOut = new Date(selectedDate);
+        maxCheckOut.setDate(selectedDate.getDate() + 7);
+
+        checkOutInput.setAttribute("min", formatDate(selectedDate));
+        checkOutInput.setAttribute("max", formatDate(maxCheckOut));
+
+        checkOutInput.value = formatDate(maxCheckOut);
+    });
 });
