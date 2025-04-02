@@ -10,7 +10,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         "./img/property1.svg",
         "./img/property2.svg",
         "./img/property3.svg",
-        "./img/property4.svg"
+        "./img/property4.svg",
+        "./img/property5.jpg",
+        "./img/property6.jpg",
+        "./img/property7.jpg",
+        "./img/property8.jpg",
+        "./img/property9.jpg",
+        "./img/property10.jpg",
+        "./img/property11.jpg",
+        "./img/property12.jpg",
+        "./img/property13.jpg",
+        "./img/property14.jpg",
+        "./img/property15.jpg",
     ];
 
     // ✅ Функция загрузки данных
@@ -112,12 +123,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Вызов функции при загрузке страницы для инициализации данных
     fetchPropertyCounts();
-    // ✅ Перемешивание (рандомный порядок)
+    // Перемешивание (рандомный порядок)
     function shuffleArray(array) {
         return array.sort(() => Math.random() - 0.5);
     }
 
-    // ✅ Обновление стрелки сортировки
+    // Обновление стрелки сортировки
     function updateSortArrow() {
         const arrow = document.getElementById("sort-arrow");
         if (sortOrder === "asc") {
@@ -129,7 +140,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // ✅ Функция сортировки
+    // Функция сортировки
     function toggleSort() {
         if (sortOrder === "random") {
             sortOrder = "asc";
@@ -147,7 +158,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderPagination();
     }
 
-    // ✅ Рендер карточек
+    // Рендер карточек
     function renderProperties() {
         const container = document.getElementById("property-list");
         container.innerHTML = "";
@@ -181,7 +192,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // ✅ Рендер пагинации
+    // Рендер пагинации
     function renderPagination() {
         const paginationContainer = document.getElementById("pagination");
         paginationContainer.innerHTML = "";
@@ -207,21 +218,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // ✅ Обновление цены в ползунке
+    // Обновление цены в ползунке
     document.getElementById('price').addEventListener('input', function () {
         const priceValue = this.value;
         document.getElementById('price-range-text').textContent = `От 0 до ${priceValue} ₽`;
     });
 
 
-    // ✅ Обработчик фильтрации
+    // Обработчик фильтрации
     document.getElementById('apply-filters').addEventListener('click', function () {
         const selectedPrice = document.getElementById('price').value;
 
-        // 1️⃣ Фильтруем по цене
+        // Фильтруем по цене
         filteredProperties = allProperties.filter(property => property.Price?.price <= selectedPrice);
 
-        // 2️⃣ Фильтруем по чекбоксам (типы жилья)
+        // Фильтруем по чекбоксам (типы жилья)
         const hotelsChecked = document.getElementById('hotel-checkbox').checked;
         const apartmentsChecked = document.getElementById('apartment-checkbox').checked;
         const housesChecked = document.getElementById('house-checkbox').checked;
@@ -238,7 +249,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             );
         }
 
-        // 3️⃣ Фильтруем по количеству двухспальных кроватей
+        // Фильтруем по количеству двухспальных кроватей
         const selectedDoubleBeds = document.getElementById('double-beds').value;
         if (selectedDoubleBeds) {
             filteredProperties = filteredProperties.filter(property =>
@@ -246,7 +257,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             );
         }
 
-        // 4️⃣ Фильтруем по количеству раздельных кроватей
+        // Фильтруем по количеству раздельных кроватей
         const selectedSplitBeds = document.getElementById('split-beds').value;
         if (selectedSplitBeds) {
             filteredProperties = filteredProperties.filter(property =>
@@ -278,7 +289,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-        // 3️⃣ Фильтруем по удобствам
+        // Фильтруем по удобствам
         // const wifiChecked = document.getElementById('wifi-checkbox').checked;
         // const acChecked = document.getElementById('ac-checkbox').checked;
         // const fridgeChecked = document.getElementById('fridge-checkbox').checked; // аналогично для других
@@ -293,7 +304,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // });
 
 
-        // 6️⃣ Применяем текущую сортировку 
+        // Применяем текущую сортировку 
         if (sortOrder === "asc") {
             filteredProperties.sort((a, b) => a.Price?.price - b.Price?.price);
         } else if (sortOrder === "desc") {
@@ -302,13 +313,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             filteredProperties = shuffleArray(filteredProperties);
         }
 
-        // 7️⃣ Обновляем страницу и пагинацию
+        // Обновляем страницу и пагинацию
         currentPage = 1;
         renderProperties();
         renderPagination();
     });
 
-    // ✅ Сброс фильтров
+    // Сброс фильтров
     document.getElementById('reset-filters').addEventListener('click', function () {
         document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
         document.getElementById('price').value = maxPrice;
@@ -318,10 +329,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderPagination();
     });
 
-    // ✅ Обработчик сортировки
+    // Обработчик сортировки
     document.getElementById('sort-button').addEventListener('click', toggleSort);
 
-    // ✅ Загрузка данных
+    // Загрузка данных
     fetchData();
 });
 document.addEventListener("DOMContentLoaded", function () {
