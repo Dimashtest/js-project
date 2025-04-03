@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="./index.js" defer></script>
 </head>
 <!--class="-->
@@ -40,13 +41,20 @@
 
 
 
-    <section
-    class="h-full flex flex-col mt-[170px] justify-center text-white items-center gap-3 text-center px-[150px] z-20">
+    <section id="searchSection"
+    class="h-full flex flex-col mt-[170px] justify-center text-white items-center gap-3 text-center px-[150px] z-20 transition-all duration-500">
     <div class="flex flex-col">
         <h1 class="text-4xl font-bold">ЖИЛЬЕ НА ЮЖНОМ БЕРЕГУ КРЫМА ПО САМЫМ ЛУЧШИМ ЦЕНАМ</h1>
         <p class="text-lg mt-5">Более 150 000 объявлений – комиссия 0%</p>
     </div>
-    <div class="mt-6 bg-black/50 p-6 rounded-lg shadow-lg flex flex-wrap gap-4 justify-center relative">
+
+    <button id="toggleSearch"
+        class="absolute mt-[400px] z-50 text-white text-3xl p-3 rounded-full shadow-lg hover:border-2 border-white transition">
+    <i class="fas fa-arrow-down" id="arrowIcon"></i>
+    </button>
+
+    <div
+        class="mt-6 bg-black/50 p-6 rounded-lg shadow-lg flex flex-wrap gap-4 justify-center relative transition-all duration-500">
         <div class="relative w-40">
             <input id="cityInput" required type="text" placeholder="Город"
                 class="px-4 py-2 rounded-md bg-white text-black w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -85,62 +93,58 @@
         <button class="bg-blue-500 text-white px-6 py-2 rounded-md shadow-md hover:bg-blue-600 transition"
             onclick="window.location='main.html';">Найти жилье</button>
     </div>
+
     <div class="absolute inset-0 h-[532px] bg-black opacity-50 z-[-1]"></div>
 </section>
 
-    <section>
-        <div class="relative h-40 overflow-hidden mt-[-10px]">
-            <div
-                class="absolute bottom-0 left-0 w-0 h-0 border-r-[50vw] border-r-transparent border-b-[160px] border-b-blue-500">
+<section id="searchForm">
+    <div class="relative h-40 overflow-hidden mt-[-10px]">
+        <div class="absolute bottom-0 left-0 w-0 h-0 border-r-[50vw] border-r-transparent border-b-[160px] border-b-blue-500"></div>
+        <div class="absolute bottom-0 right-0 w-0 h-0 border-l-[50vw] border-l-transparent border-b-[160px] border-b-blue-500"></div>
+    </div>
+
+    <div id="infoBlock" class="bg-blue-500 text-white h-[415px] w-full flex justify-center items-center p-7 shadow-[0px_30px_12px_rgba(0,0,0,0.1)] top-[-100%] left-0 right-0 transform translate-y-[-100%] opacity-0 transition-all duration-[1s] ease-in-out">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-[40px] text-center">
+            <div class="flex flex-col gap-5 w-[400px]">
+                <img src="./logos/commission.png" class="mx-auto mb-4" alt="Icon">
+                <h3 class="text-lg font-bold">Комиссия - 0%</h3>
+                <p>Эксклюзивно! Только при бронировании у нас вы можете быть уверены, что платите ТОЛЬКО собственнику</p>
             </div>
-            <div
-                class="absolute bottom-0 right-0 w-0 h-0 border-l-[50vw] border-l-transparent border-b-[160px] border-b-blue-500">
+            <div class="flex flex-col gap-5 w-[400px]">
+                <img src="./logos/reliability.png" class="mx-auto mb-4" alt="Icon">
+                <h3 class="text-lg font-bold">Надежно 100%</h3>
+                <p>Мы проверяем каждое объявление и гарантируем никаих «черных» маклеров</p>
+            </div>
+            <div class="flex flex-col gap-5 w-[400px]">
+                <img src="./logos/sale.png" class="mx-auto mb-4" alt="Icon">
+                <h3 class="text-lg font-bold">Гарантия низкой цены</h3>
+                <p>Мы готовы предложить вам объекты по самым низким ценам в Ялте!</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <div
-            class=" bg-blue-500 text-white h-[415px] w-full flex justify-center items-center p-7 shadow-[0px_30px_12px_rgba(0,0,0,0.3)] ">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-[40px] text-center ">
-                <div class="flex flex-col gap-5 w-[400px]">
-                    <img src="./logos/commission.png" class="mx-auto mb-4" alt="Icon">
-                    <h3 class="text-lg font-bold">Комиссия - 0%</h3>
-                    <p>Эксклюзивно! Только при бронировании у нас вы можете быть уверены, что платите ТОЛЬКО
-                        собственнику</p>
-                </div>
-                <div class="flex flex-col gap-5 w-[400px]">
-                    <img src="./logos/reliability.png" class="mx-auto mb-4" alt="Icon">
-                    <h3 class="text-lg font-bold">Надежно 100%</h3>
-                    <p>Мы проверяем каждое объявление и гарантируем никаих «черных» маклеров</p>
-                </div>
-                <div class="flex flex-col gap-5 w-[400px]">
-                    <img src="./logos/sale.png" class="mx-auto mb-4" alt="Icon">
-                    <h3 class="text-lg font-bold">Гарантия низкой цены</h3>
-                    <p>Мы готовы предложить вам объекты по самым низким ценам в Ялте!</p>
-                </div>
+<section id="sityBlock"> 
+    <div id="sityBlockInner" class="h-[350px] overflow-hidden mt-[-350px] transition-all duration-500">
+        <div class="flex flex-col gap-[35px] justify-center items-center">
+            <div class="flex gap-[35px]">
+                <button data-type="hotels"
+                    class="category-btn bg-blue-500 text-white px-[70px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Отели</button>
+                <button data-type="apartments"
+                    class="category-btn bg-gray-300 text-black px-[40px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Квартиры</button>
+                <button data-type="houses"
+                    class="category-btn bg-gray-300 text-black px-[80px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Дома</button>
+                <button data-type="guesthouses"
+                    class="category-btn bg-gray-300 text-black px-[80px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Гостевые дома</button>
+                <button data-type="private"
+                    class="category-btn bg-gray-300 text-black px-[80px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Частный сектор</button>
             </div>
-    </section>
-
-    <section>
-        <div class="h-[350px] overflow-hidden mt-[75px]">
-            <div class="flex flex-col gap-[35px] justify-center items-center">
-                <div class="flex gap-[35px]"> <!--надо покрасить кнопки-->
-                    <button data-type="hotels"
-                        class="category-btn bg-blue-500 text-white px-[70px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Отели</button>
-                    <button data-type="apartments"
-                        class="category-btn bg-gray-300 text-black px-[40px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Квартиры</button>
-                    <button data-type="houses"
-                        class="category-btn bg-gray-300 text-black px-[80px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Дома</button>
-                    <button data-type="guesthouses"
-                        class="category-btn bg-gray-300 text-black px-[80px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Гостевые дома</button>
-                    <button data-type="private"
-                        class="category-btn bg-gray-300 text-black px-[80px] py-4 rounded-md shadow-[0px_16px_12px_rgba(0,0,0,0.3)] hover:bg-blue-600 transition">Частный сектор</button>
-                </div>
-                <div class="bg-blue-500 w-[1400px] h-1"></div>
-                <div id="cityList" class="text-black text-[20px] flex gap-[100px] w-[1200px] justify-start">
-                </div>
+            <div class="bg-blue-500 w-[1400px] h-1"></div>
+            <div id="cityList" class="text-black text-[20px] flex gap-[100px] w-[1200px] justify-start">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section>
         <div class="relative h-[350px] overflow-hidden bg-gray-200">
