@@ -57,5 +57,37 @@ module.exports = {
         } catch (error) {
             res.status(500).json({ message: 'Ошибка при получении данных', error: error.message });
         }
+    },
+    async getPropertyByQueryId(req, res) {
+        try {
+            const { id } = req.query;
+    
+            if (!id) {
+                return res.status(400).json({ message: "ID не передан" });
+            }
+    
+            const property = await Property.findOne({
+                where: { property_id: id },
+                include: [
+                    { model: Location, as: 'Location' },
+                    { model: DistanceToTheSea, as: 'DistanceToTheSea' },
+                    { model: InTheRoom, as: 'InTheRoom' },
+                    { model: InTheTerritory, as: 'InTheTerritory' },
+                    { model: Near, as: 'Near' },
+                    { model: NumberOfRoom, as: 'NumberOfRoom' },
+                    { model: Service, as: 'Service' },
+                    { model: Price, as: 'Price' }
+                ]
+            });
+    
+            if (!property) {
+                return res.status(404).json({ message: "Объект не найден" });
+            }
+    
+            res.json(property);
+        } catch (error) {
+            res.status(500).json({ message: 'Ошибка при получении объекта', error: error.message });
+        }
     }
+    
 };

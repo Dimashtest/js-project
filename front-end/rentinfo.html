@@ -39,88 +39,52 @@
 
     <section class="flex p-4 mt-[120px]">
 
-        <div class="max-w-5xl mx-auto bg-white p-6 shadow-2xl rounded-lg">
+        <div id="properties-container" class="max-w-5xl mx-auto bg-white p-6 shadow-2xl rounded-lg">
             <nav class="text-gray-500 mb-4">
-                <a href="./main.html" class="text-blue-500">К поиску</a> → Крым → Ялта → №1267
+                <a href="./main.html" class="text-blue-500">К поиску</a> → <span id="breadcrumb-city">Город</span> → <span id="property-id">№</span>
             </nav>
-
-            <h1 class="text-3xl font-bold mb-4">3-Комнатная квартира — Ялта, Блюхера, 48</h1>
-
+        
+            <h1 id="property-title" class="text-3xl font-bold mb-4">Название недвижимости</h1>
+        
             <div class="flex gap-6">
                 <div class="w-3/4">
                     <img id="mainImage" src="./img/example.jpg" alt="Квартира" class="w-full h-[500px]">
                 </div>
-
+        
                 <div class="flex flex-col gap-2">
                     <div class="w-full max-w-md bg-gray-50 p-6 rounded-lg shadow-md flex flex-col">
                         <label class="block mb-2">Заезд</label>
                         <input type="date" class="w-full p-3 border rounded mb-4">
-
+        
                         <label class="block mb-2">Выезд</label>
                         <input type="date" class="w-full p-3 border rounded mb-4">
-
+        
                         <label class="block mb-2">Гостей</label>
                         <input type="number" min="1" class="w-full p-3 border rounded mb-4">
-
-                        <p class="text-lg font-semibold">Цена: <span class="ml-[60zpx] text-blue-500">От 2400 ₽</span>
-                        </p>
-
-                        <button
-                            class="w-full bg-blue-500 text-white py-3 rounded-lg mt-4 text-lg">Забронировать</button>
-
+        
+                        <p id="price-tag" class="text-lg font-semibold">Цена: <span class="ml-[60px] text-blue-500">От 2400 ₽</span></p>
+        
+                        <button class="w-full bg-blue-500 text-white py-3 rounded-lg mt-4 text-lg">Забронировать</button>
+        
                         <div class="text-gray-500 text-center text-lx leading-tight w-full p-2">
                             <p class="whitespace-nowrap">Выберите даты и количество гостей</p>
                             <p class="whitespace-nowrap">для расчёта стоимости проживания</p>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-            <div class="grid grid-cols-5 gap-2 mt-6">
-                <img src="./img/property5.jpg" alt="Фото"
-                    class="thumbnail w-full aspect-square object-cover border-4 border-transparent cursor-pointer">
-                <img src="./logos/houseinfo1.svg" alt="Фото"
-                    class="thumbnail w-full aspect-square object-cover border-4 border-transparent cursor-pointer">
-                <img src="./logos/houseinfo2.svg" alt="Фото"
-                    class="thumbnail w-full aspect-square object-cover border-4 border-transparent cursor-pointer">
-                <img src="./logos/houseinfo3.svg" alt="Фото"
-                    class="thumbnail w-full aspect-square object-cover border-4 border-transparent cursor-pointer">
-                <img src="./logos/houseinfo4.svg" alt="Фото"
-                    class="thumbnail w-full aspect-square object-cover border-4 border-transparent cursor-pointer">
+        
+            <div id="image-gallery" class="grid grid-cols-5 gap-2 mt-6">
+                <!-- Изображения, которые будут загружены через JavaScript -->
             </div>
         </div>
+        
+        
     </section>
 
     <section class="max-w-5xl mx-auto p-6 rounded-lg flex gap-6">
         <div class="flex-1">
-            <div class="p-6 rounded-lg bg-gray-50 mb-6">
-                <h2 class="text-xl font-semibold">Ялта, Блюхера, 48</h2>
-                <p class="text-gray-500 mb-4">3-комнатная квартира</p>
-
-                <div class="grid grid-cols-5 gap-4 text-center">
-                    <div>
-                        <img src="./img/door.svg" alt="Спальни" class="mx-auto">
-                        <p>2 спальни</p>
-                    </div>
-                    <div>
-                        <img src="./img/bed.svg" alt="Кровати" class="mx-auto">
-                        <p>2 кровати</p>
-                    </div>
-                    <div>
-                        <img src="./img/community.svg" alt="Гости" class="mx-auto">
-                        <p>4 гостя</p>
-                    </div>
-                    <div>
-                        <p class="text-xl">42 м²</p>
-                        <p class="mt-[2px]">общая площадь</p>
-                    </div>
-                    <div>
-                        <p class="text-xl">1 из 8</p>
-                        <p class="mt-[3px]">этажей (есть лифт)</p>
-                    </div>
-                </div>
-            </div>
+            <div id="property-container" class="space-y-10"></div>
 
             <div class="p-6 rounded-lg bg-gray-50 mb-6">
                 <h2 class="text-lg font-semibold mb-4">Правила размещения</h2>

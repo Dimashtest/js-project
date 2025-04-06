@@ -46,116 +46,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Функция для обновления счетчиков
-    async function fetchPropertyCounts() {
-        try {
-            const response = await fetch('http://localhost:4000/api/properties');
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const properties = await response.json();
-
-            const counts = {
-                hotels: 0,
-                apartments: 0,
-                houses: 0,
-                guestHouses: 0,
-                privateSector: 0,
-            };
-
-            // Получаем выбранные чекбоксы
-            const hotelCheckbox = document.getElementById('hotel-checkbox').checked;
-            const apartmentCheckbox = document.getElementById('apartment-checkbox').checked;
-            const houseCheckbox = document.getElementById('house-checkbox').checked;
-            const guestHouseCheckbox = document.getElementById('guest-house-checkbox').checked;
-            const privateSectorCheckbox = document.getElementById('private-sector-checkbox').checked;
-
-            // Фильтруем объекты в зависимости от того, какие чекбоксы выбраны
-            const filteredProperties = properties.filter(property => {
-                return (
-                    (hotelCheckbox && property.type === 'hotel') ||
-                    (apartmentCheckbox && property.type === 'apartment') ||
-                    (houseCheckbox && property.type === 'house') ||
-                    (guestHouseCheckbox && property.type === 'guest_houses') ||
-                    (privateSectorCheckbox && property.type === 'private_sector')
-                );
-            });
-
-            // Подсчитываем количество объектов для каждого типа
-            filteredProperties.forEach(property => {
-                switch (property.type) {
-                    case 'hotel':
-                        counts.hotels++;
-                        break;
-                    case 'apartment':
-                        counts.apartments++;
-                        break;
-                    case 'house':
-                        counts.houses++;
-                        break;
-                    case 'guest_houses':
-                        counts.guestHouses++;
-                        break;
-                    case 'private_sector':
-                        counts.privateSector++;
-                        break;
-                }
-            });
-
-            // Обновляем отображение счетчиков
-            document.getElementById('hotels-count').textContent = counts.hotels;
-            document.getElementById('apartments-count').textContent = counts.apartments;
-            document.getElementById('houses-count').textContent = counts.houses;
-            document.getElementById('guestHouses-count').textContent = counts.guestHouses;
-            document.getElementById('privateSector-count').textContent = counts.privateSector;
-
-        } catch (error) {
-            console.error('Ошибка при получении данных:', error.message);
-        }
-    }
-
-    // Вызов функции после изменения состояния чекбоксов
-    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-        checkbox.addEventListener('change', fetchPropertyCounts);
-    });
-
-    // Вызов функции при загрузке страницы для инициализации данных
-    fetchPropertyCounts();
     // Перемешивание (рандомный порядок)
     function shuffleArray(array) {
         return array.sort(() => Math.random() - 0.5);
-    }
-
-    // Обновление стрелки сортировки
-    function updateSortArrow() {
-        const arrow = document.getElementById("sort-arrow");
-        if (sortOrder === "asc") {
-            arrow.textContent = "↑"; // По возрастанию
-        } else if (sortOrder === "desc") {
-            arrow.textContent = "↓"; // По убыванию
-        } else {
-            arrow.textContent = "↻"; // Рандом
-        }
-    }
-
-    // Функция сортировки
-    function toggleSort() {
-        if (sortOrder === "random") {
-            sortOrder = "asc";
-            filteredProperties.sort((a, b) => a.Price?.price - b.Price?.price);
-        } else if (sortOrder === "asc") {
-            sortOrder = "desc";
-            filteredProperties.sort((a, b) => b.Price?.price - a.Price?.price);
-        } else {
-            sortOrder = "random";
-            filteredProperties = shuffleArray(filteredProperties);
-        }
-
-        updateSortArrow();
-        renderProperties();
-        renderPagination();
     }
 
     // Рендер карточек
@@ -218,12 +111,41 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    // Обновление стрелки сортировки
+    function updateSortArrow() {
+        const arrow = document.getElementById("sort-arrow");
+        if (sortOrder === "asc") {
+            arrow.textContent = "↑"; // По возрастанию
+        } else if (sortOrder === "desc") {
+            arrow.textContent = "↓"; // По убыванию
+        } else {
+            arrow.textContent = "↻"; // Рандом
+        }
+    }
+
+    // Функция сортировки
+    function toggleSort() {
+        if (sortOrder === "random") {
+            sortOrder = "asc";
+            filteredProperties.sort((a, b) => a.Price?.price - b.Price?.price);
+        } else if (sortOrder === "asc") {
+            sortOrder = "desc";
+            filteredProperties.sort((a, b) => b.Price?.price - a.Price?.price);
+        } else {
+            sortOrder = "random";
+            filteredProperties = shuffleArray(filteredProperties);
+        }
+
+        updateSortArrow();
+        renderProperties();
+        renderPagination();
+    }
+
     // Обновление цены в ползунке
     document.getElementById('price').addEventListener('input', function () {
         const priceValue = this.value;
         document.getElementById('price-range-text').textContent = `От 0 до ${priceValue} ₽`;
     });
-
 
     // Обработчик фильтрации
     document.getElementById('apply-filters').addEventListener('click', function () {
@@ -289,21 +211,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-        // Фильтруем по удобствам
-        // const wifiChecked = document.getElementById('wifi-checkbox').checked;
-        // const acChecked = document.getElementById('ac-checkbox').checked;
-        // const fridgeChecked = document.getElementById('fridge-checkbox').checked; // аналогично для других
-        // Добавьте проверки для других удобств
-
-        // filteredProperties = filteredProperties.filter(property => {
-        //     return (!wifiChecked || property.amenities.includes('wifi')) &&
-        //         (!acChecked || property.amenities.includes('ac')) &&
-        //         (!fridgeChecked || property.amenities.includes('fridge')) &&
-        //         // Добавьте условия для других удобств
-        //         true; // Для всех остальных удобств (если их нет или они не выбраны)
-        // });
-
-
         // Применяем текущую сортировку 
         if (sortOrder === "asc") {
             filteredProperties.sort((a, b) => a.Price?.price - b.Price?.price);
@@ -331,10 +238,56 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Обработчик сортировки
     document.getElementById('sort-button').addEventListener('click', toggleSort);
+    
+    const guestsSelectOne = document.getElementById("guestsSelectOne");
+        const guestsSelectTwo = document.getElementById("guestsSelectTwo");
+        const applyFiltersButton = document.getElementById("applyFilters");
 
+        // Проверяем, что элементы существуют
+        if (guestsSelectOne && guestsSelectTwo && applyFiltersButton) {
+            // Привязываем обработчик событий
+            applyFiltersButton.addEventListener('click', applyFilters);
+        } else {
+            console.error("Не найдены элементы для фильтров");
+        }
+
+        // Функция для фильтрации по одному параметру
+    function applySingleFilter(filterType, value) {
+        if (value) {
+            filteredProperties = allProperties.filter(property => {
+                if (filterType === 'city') {
+                    return property.Location?.city.toLowerCase().includes(value.toLowerCase());
+                }
+                if (filterType === 'beds') {
+                    return property.NumberOfRoom?.numberofbeds == value;
+                }
+                // Добавьте другие фильтры здесь (например, по цене, расстоянию и т.д.)
+                return true;
+            });
+        } else {
+            filteredProperties = [...allProperties];
+        }
+
+        renderProperties();
+        renderPagination();
+    }
+
+    // Обработчик для поиска города
+    document.getElementById("cityInput").addEventListener("input", function () {
+        const cityValue = this.value;
+        applySingleFilter('city', cityValue);
+    });
+
+    // Обработчик для выбора количества кроватей
+    document.getElementById("guestsSelectOne").addEventListener("change", function () {
+        const bedsValue = this.value;
+        applySingleFilter('beds', bedsValue);
+    });
     // Загрузка данных
     fetchData();
 });
+
+// Фильтрация по городу
 document.addEventListener("DOMContentLoaded", function () {
     const cities = [
         "Ялта", "Гурфуз", "Гаспра", "Массандра", "Никита", 
@@ -385,28 +338,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-// Блок с датами
-document.addEventListener("DOMContentLoaded", function () {
-    const checkInInput = document.getElementById("check-in");
-    const checkOutInput = document.getElementById("check-out");
 
-    let formatDate = (date) => date.toISOString().split("T")[0];
-
-    let today = new Date();
-    let maxDate = new Date();
-    maxDate.setDate(today.getDate() + 7);
-
-    checkInInput.setAttribute("min", formatDate(today));
-    checkInInput.setAttribute("max", formatDate(maxDate));
-
-    checkInInput.addEventListener("change", function () {
-        let selectedDate = new Date(this.value);
-        let maxCheckOut = new Date(selectedDate);
-        maxCheckOut.setDate(selectedDate.getDate() + 7);
-
-        checkOutInput.setAttribute("min", formatDate(selectedDate));
-        checkOutInput.setAttribute("max", formatDate(maxCheckOut));
-
-        checkOutInput.value = formatDate(maxCheckOut);
-    });
-});

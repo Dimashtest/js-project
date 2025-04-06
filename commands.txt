@@ -119,7 +119,84 @@ INSERT INTO locations (city, street, house_number) VALUES
 ('Виноградное', 'Зелёная', '8Б'),
 ('Виноградное', 'Набережная', '3'),
 ('Виноградное', 'Гагарина', '17'),
-('Виноградное', 'Шоссейная', '12А');
+('Виноградное', 'Шоссейная', '12А'),
+
+('Ялта', 'Весенняя', '7Б'),
+('Ялта', 'Лесная', '12А'),
+('Ялта', 'Солнечная', '3'),
+('Ялта', 'Прибрежная', '9'),
+('Ялта', 'Подгорная', '15'),
+('Ялта', 'Заречная', '4А'),
+('Ялта', 'Речная', '11'),
+('Ялта', 'Горизонт', '6Б'),
+('Ялта', 'Строителей', '10'),
+('Ялта', 'Луговая', '8А'),
+
+('Гурзуф', 'Виноградная', '5Б'),
+('Гурзуф', 'Молодёжная', '14'),
+('Гурзуф', 'Ягодная', '3А'),
+('Гурзуф', 'Зелёный переулок', '7'),
+('Гурзуф', 'Озерная', '2Б'),
+('Гурзуф', 'Лазурная', '9А'),
+('Гурзуф', 'Сиреневая', '13'),
+('Гурзуф', 'Тенистая', '8'),
+('Гурзуф', 'Светлая', '12'),
+('Гурзуф', 'Школьная', '6А'),
+
+('Гаспра', 'Кедровая', '11Б'),
+('Гаспра', 'Черешневая', '18'),
+('Гаспра', 'Берёзовая', '2А'),
+('Гаспра', 'Абрикосовая', '7'),
+('Гаспра', 'Рябиновая', '10А'),
+('Гаспра', 'Брусничная', '14'),
+('Гаспра', 'Лавандовая', '3Б'),
+('Гаспра', 'Заречная', '5'),
+('Гаспра', 'Розовая', '12А'),
+('Гаспра', 'Мирная', '9'),
+
+('Массандра', 'Ясная', '8Б'),
+('Массандра', 'Золотая', '14А'),
+('Массандра', 'Звёздная', '5'),
+('Массандра', 'Тихая', '17'),
+('Массандра', 'Полевая', '11А'),
+('Массандра', 'Солнечный проезд', '3Б'),
+('Массандра', 'Ромашковая', '19'),
+('Массандра', 'Цветочная', '6А'),
+('Массандра', 'Ручейная', '4Б'),
+('Массандра', 'Лесопарковая', '10'),
+
+('Никита', 'Ольховая', '15А'),
+('Никита', 'Береговая', '6Б'),
+('Никита', 'Сосновая', '2'),
+('Никита', 'Песчаная', '9А'),
+('Никита', 'Зелёный бульвар', '14'),
+('Никита', 'Луговой переулок', '3Б'),
+('Никита', 'Просторная', '5А'),
+('Никита', 'Ручейковая', '7Б'),
+('Никита', 'Горная тропа', '8А'),
+('Никита', 'Рассветная', '12'),
+
+('Ливадия', 'Медовая', '19'),
+('Ливадия', 'Зелёная роща', '4А'),
+('Ливадия', 'Светогорская', '7'),
+('Ливадия', 'Грибная', '2Б'),
+('Ливадия', 'Гвардейская', '10А'),
+('Ливадия', 'Ландышевая', '6'),
+('Ливадия', 'Брусничный переулок', '14'),
+('Ливадия', 'Рассветная', '9А'),
+('Ливадия', 'Курортный переулок', '3'),
+('Ливадия', 'Можжевеловая', '12'),
+
+('Виноградное', 'Сиреневый бульвар', '5Б'),
+('Виноградное', 'Заречная', '10'),
+('Виноградное', 'Лесопарковая', '14А'),
+('Виноградное', 'Звёздная', '3Б'),
+('Виноградное', 'Абрикосовая', '8'),
+('Виноградное', 'Брусничный переулок', '11'),
+('Виноградное', 'Можжевеловая', '6А'),
+('Виноградное', 'Ягодный проезд', '17'),
+('Виноградное', 'Песчаная', '12'),
+('Виноградное', 'Тополёвая', '9А');
 
 
 
@@ -136,19 +213,26 @@ VALUES
 ('5–7 км'),
 ('более 7 км')
 
+ALTER TABLE retail MODIFY COLUMN description VARCHAR(500);
 
-INSERT INTO numberofroom (numberofbeds, numberofsplitedbeds)
+ALTER TABLE numberofroom MODIFY COLUMN description VARCHAR(500); 
+INSERT INTO numberofroom (numberofbeds, numberofsplitedbeds, square, guests, rooms, description)
 VALUES
-    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5)),
-    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5)),
-    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5)),
-    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5)),
-    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5)),
-    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5)),
-    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5)),
-    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5)),
-    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5)),
-    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5));
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Просторный загородный дом с камином и большой гостиной. Идеально подходит для семейного отдыха или компании друзей. В доме три спальни, две ванные комнаты и полностью оборудованная кухня. На территории есть мангальная зона и парковка на два автомобиля. Рядом расположен лес, идеальный для прогулок и пикников.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Современные апартаменты с панорамными окнами в центре города. Просторная гостиная совмещена с кухней в стиле лофт. В спальне установлена большая двуспальная кровать и шкаф-купе. В шаговой доступности находятся магазины, кафе и парк. Отличный вариант для туристов и командировок.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Элитная вилла с собственным бассейном и террасой. Просторные комнаты с дизайнерской мебелью и огромными окнами создают ощущение легкости и комфорта. Кухня оснащена всей необходимой техникой, а в гостиной есть уютный камин. С террасы открывается великолепный вид на море. Дом идеально подходит для расслабленного отдыха или романтического вечера.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Уютный дом у озера с русской баней и беседкой. В доме три спальни, просторная кухня и гостиная с камином. Вечером можно устраивать посиделки у костра или готовить шашлыки в мангальной зоне. В пяти минутах ходьбы находится оборудованный пляж. Отличный вариант для любителей природы и уединения.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Компактная квартира-студия с современным ремонтом. Подойдет как для одного гостя, так и для пары. В интерьере преобладают светлые оттенки, что делает пространство еще уютнее. Окна выходят на тихий двор, обеспечивая покой и тишину. Рядом остановка общественного транспорта и торговый центр.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Коттедж в горах с потрясающим видом на долину. Просторная терраса с зоной отдыха и барбекю. В доме есть три спальни, большая кухня и уютная гостиная. До ближайшего горнолыжного курорта 10 минут на машине. Отличное место для тех, кто любит активный отдых на свежем воздухе.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Частный дом на берегу моря с отдельным пляжем. Гости могут наслаждаться живописными закатами прямо с террасы. В доме две спальни, большая кухня и гостиная с панорамными окнами. Во дворе оборудована летняя кухня и игровая площадка для детей. Идеальный вариант для семейного отдыха.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Таунхаус в закрытом жилом комплексе с парком и бассейном. В доме две спальни, просторная кухня и уютная гостиная. На территории комплекса есть спортивные площадки и зоны отдыха. В пешей доступности магазины, рестораны и детский сад. Безопасность обеспечивается круглосуточной охраной.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Дом с зимним садом и теплыми полами. Великолепный вариант для круглогодичного проживания. В доме три спальни, большая гостиная и кухня с выходом на террасу. В саду растут фруктовые деревья, а рядом с домом есть небольшая теплица. Отличное место для уединения и спокойной жизни.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Современный лофт с высокими потолками и дизайнерской мебелью. Открытая планировка делает пространство светлым и просторным. В спальне установлена кровать king-size, а в гостиной есть удобный диван и рабочая зона. Вся мебель и техника новые, высокого качества. В 5 минутах ходьбы находится станция метро.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Трехэтажный дом в стиле шале у подножия гор. В доме есть собственный винный погреб и уютная библиотека. Деревянные балки и каменные стены создают атмосферу уюта и уединения. С балкона открывается потрясающий вид на заснеженные вершины. Недалеко находится термальный источник.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Гостевой дом с уютной верандой и собственным садом. Просторные комнаты с мягкой мебелью и классическим интерьером. В саду оборудована детская площадка и небольшой фонтан. Рядом лес, где можно гулять и наслаждаться природой. Отличное место для семейного отдыха.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Квартира в небоскребе с панорамным видом на город. Высокие окна делают пространство невероятно светлым и просторным. В спальне огромная кровать, а в гостиной удобный раскладной диван. В доме есть фитнес-зал, бассейн и круглосуточная охрана. В пешей доступности магазины и рестораны.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Роскошная резиденция с огромным садом и фонтаном. В доме несколько спален, просторная гостиная и полностью оборудованная кухня. Большая терраса идеально подходит для вечерних посиделок. В саду есть теннисный корт и бассейн. Уединенное место для комфортного отдыха вдали от городской суеты.'),
+    (FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), FLOOR(20 + RAND() * 60), FLOOR(1 + RAND() * 5), FLOOR(1 + RAND() * 5), 'Деревянный дом с видом на реку и сауной. В доме есть просторная гостиная с камином, кухня и две спальни. Рядом находится пирс, где можно порыбачить или покататься на лодке. Для любителей активного отдыха есть велосипедные и пешие маршруты. Отличный вариант для загородного отдыха.');  
 
     INSERT INTO intheroom (wifi, conditioner, fridge, dishwasher, kitchen, balcony, jacuzzi, sauna, terrace, microwave, hairdryer, iron, electickettle, dish, towel, tv)
 VALUES
@@ -454,6 +538,7 @@ VALUES
 (0, 0, 0, 1)
 ;
 
+не юзать
 INSERT INTO price (price)
 SELECT FLOOR(2000 + RAND() * 8001)
 FROM (
@@ -480,7 +565,20 @@ FROM (
     SELECT 101 UNION ALL SELECT 102 UNION ALL SELECT 103 UNION ALL SELECT 104 UNION ALL SELECT 105
 ) AS numbers;
 
-
+INSERT INTO price (price)
+SELECT FLOOR(2000 + RAND() * 8001)
+FROM (
+    SELECT a.n + b.n * 25 AS num
+    FROM 
+        (SELECT 0 n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4
+         UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+         UNION ALL SELECT 10 UNION ALL SELECT 11 UNION ALL SELECT 12 UNION ALL SELECT 13 UNION ALL SELECT 14
+         UNION ALL SELECT 15 UNION ALL SELECT 16 UNION ALL SELECT 17 UNION ALL SELECT 18 UNION ALL SELECT 19
+         UNION ALL SELECT 20 UNION ALL SELECT 21 UNION ALL SELECT 22 UNION ALL SELECT 23 UNION ALL SELECT 24) a,
+        (SELECT 0 n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4
+         UNION ALL SELECT 5 UNION ALL SELECT 6) b
+) AS numbers
+LIMIT 125;
 
 
 INSERT INTO properties (
@@ -522,6 +620,7 @@ FROM (
   SELECT 'Отель Звезда', 'hotel' UNION ALL
   SELECT 'Отель Элит', 'hotel' UNION ALL
   SELECT 'Отель Лагуна', 'hotel' UNION ALL
+
   SELECT 'Дом у моря', 'house' UNION ALL
   SELECT 'Коттедж Сосновый бор', 'house' UNION ALL
   SELECT 'Дом в лесу', 'house' UNION ALL
@@ -581,7 +680,59 @@ FROM (
   SELECT 'Частный сектор Радость', 'private_sector' UNION ALL
   SELECT 'Частный сектор Фазенда', 'private_sector' UNION ALL
   SELECT 'Частный сектор Южный', 'private_sector' UNION ALL
-  SELECT 'Частный сектор Панорама', 'private_sector'
+  SELECT 'Частный сектор Панорама', 'private_sector' UNION ALL
+  -- Удалена лишняя запятая
+  SELECT 'Лунный Берег', 'hotel' UNION ALL
+  SELECT 'Виктория Гранд', 'hotel' UNION ALL
+  SELECT 'Отель Престиж', 'hotel' UNION ALL
+  SELECT 'Кристалл Плаза', 'hotel' UNION ALL
+  SELECT 'Элегант Инн', 'hotel' UNION ALL
+  SELECT 'Пансион Лагуна', 'hotel' UNION ALL
+  SELECT 'Золотой Лев', 'hotel' UNION ALL
+  SELECT 'Атриум Холл', 'hotel' UNION ALL
+  SELECT 'Парадиз Резорт', 'hotel' UNION ALL
+  SELECT 'ГРубиновый Рассвет', 'hotel' UNION ALL
+  SELECT 'Дом на склоне', 'house' UNION ALL
+  SELECT 'Солнечный коттедж', 'house' UNION ALL
+  SELECT 'Лесная усадьба', 'house' UNION ALL
+  SELECT 'Дачный комфорт', 'house' UNION ALL
+  SELECT 'Вилла Орхидея', 'house' UNION ALL
+  SELECT 'Лавандовый дом', 'house' UNION ALL
+  SELECT 'Видовой особняк', 'house' UNION ALL
+  SELECT 'Коттедж у ручья', 'house' UNION ALL
+  SELECT 'Домик в горах', 'house' UNION ALL
+  SELECT 'Панорамная вилла', 'house' UNION ALL
+  SELECT 'Пентхаус Делюкс', 'apartment' UNION ALL
+  SELECT 'Лофт у парка', 'apartment' UNION ALL
+  SELECT 'Апартаменты Серебро', 'apartment' UNION ALL
+  SELECT 'Оникс Резиденс', 'apartment' UNION ALL
+  SELECT 'Квартира у фонтана', 'apartment' UNION ALL
+  SELECT 'Горизонт Студия', 'apartment' UNION ALL
+  SELECT 'Панорама Центр', 'apartment' UNION ALL
+  SELECT 'Элегантная Квартира', 'apartment' UNION ALL
+  SELECT 'Минимал Апарт', 'apartment' UNION ALL
+  SELECT 'Студия Видовая', 'apartment' UNION ALL
+  SELECT 'Гостевой дом Сказка', 'guest_houses' UNION ALL
+  SELECT 'Пансион Морской Бриз', 'guest_houses' UNION ALL
+  SELECT 'Вилла Гранат', 'guest_houses' UNION ALL
+  SELECT 'Дом отдыха Олива', 'guest_houses' UNION ALL
+  SELECT 'Пансионат Жемчужина', 'guest_houses' UNION ALL
+  SELECT 'Гостевой комплекс Радость', 'guest_houses' UNION ALL
+  SELECT 'Дом у сосен', 'guest_houses' UNION ALL
+  SELECT 'Летний пансионат', 'guest_houses' UNION ALL
+  SELECT 'Бунгало Романтик', 'guest_houses' UNION ALL
+  SELECT 'Дом отдыха Светлый', 'guest_houses' UNION ALL
+  SELECT 'Домик у виноградника', 'private_sector' UNION ALL
+  SELECT 'Просторный двор', 'private_sector' UNION ALL
+  SELECT 'Частный дом Лето', 'private_sector' UNION ALL
+  SELECT 'Дом у ручья', 'private_sector' UNION ALL
+  SELECT 'Семейная дача', 'private_sector' UNION ALL
+  SELECT 'Уютный уголок', 'private_sector' UNION ALL
+  SELECT 'Тихий приют', 'private_sector' UNION ALL
+  SELECT 'Дом под солнцем', 'private_sector' UNION ALL
+  SELECT 'Усадьба Весна', 'private_sector' UNION ALL
+  SELECT 'Загородный рай', 'private_sector'
+
 ) AS all_props;
 
 
@@ -593,7 +744,7 @@ INSERT INTO retail (
 SELECT
   NOW(),
   NOW(),
-  FLOOR(1 + RAND() * 75) -- property_id (от 1 до 75)
+  FLOOR(1 + RAND() * 125) -- property_id (от 1 до 125)
 FROM
   (SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5
    UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION SELECT 10
@@ -616,6 +767,10 @@ FROM
    UNION SELECT 91 UNION SELECT 92 UNION SELECT 93 UNION SELECT 94 UNION SELECT 95
    UNION SELECT 96 UNION SELECT 97 UNION SELECT 98 UNION SELECT 99 UNION SELECT 100
    UNION SELECT 101 UNION SELECT 102 UNION SELECT 103 UNION SELECT 104 UNION SELECT 105
+   UNION SELECT 106 UNION SELECT 107 UNION SELECT 108 UNION SELECT 109 UNION SELECT 110
+   UNION SELECT 111 UNION SELECT 112 UNION SELECT 113 UNION SELECT 114 UNION SELECT 115
+   UNION SELECT 116 UNION SELECT 117 UNION SELECT 118 UNION SELECT 119 UNION SELECT 120
+   UNION SELECT 121 UNION SELECT 122 UNION SELECT 123 UNION SELECT 124 UNION SELECT 125
   ) AS gen;
 
 

@@ -10,7 +10,11 @@ const Numberofroom = sequelize.define(
             autoIncrement: true
         },
         numberofbeds: DataTypes.INTEGER,
-        numberofsplitedbeds: DataTypes.INTEGER
+        numberofsplitedbeds: DataTypes.INTEGER,    
+        square: DataTypes.INTEGER,
+        guests: DataTypes.INTEGER,
+        rooms: DataTypes.INTEGER,
+        description: DataTypes.TEXT
     },
     {
         tableName: 'numberofroom',

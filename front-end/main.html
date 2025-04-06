@@ -56,15 +56,9 @@
             </div>
         </div>
 
-        <input type="date" id="check-in" required
-            class="px-4 rounded-md bg-white text-black w-40 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Выбор даты">
-        <input type="date" id="check-out"
-            class="px-4 rounded-md bg-white text-black w-40 border shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Обратная дата">
 
-        <select id="guestsSelectOne" required
-            class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
+
+        <select id="guestsSelectOne" required class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
             <option value="" disabled selected>Гости</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -72,9 +66,8 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-
-        <select id="guestsSelectTwo" required
-            class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
+        
+        <select id="guestsSelectTwo" required class="px-4 py-2 rounded-md bg-white text-black w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400">
             <option value="" disabled selected>Номер</option>
             <option value="1">1 комнатная</option>
             <option value="2">2 комнатная</option>
@@ -82,9 +75,8 @@
             <option value="4">4 комнатная</option>
             <option value="5">5 комнатная</option>
         </select>
-
-        <button class="bg-blue-500 text-white px-6 py-2 rounded-md shadow-md hover:bg-blue-600 transition"
-            onclick="window.location='main.html';">Найти жилье</button>
+        
+        <button class="bg-blue-500 text-white px-6 py-2 rounded-md shadow-md hover:bg-blue-600 transition" id="applyFilters">Найти жилье</button>
     </div>
     <div class="absolute inset-0 h-[532px] bg-black opacity-50 z-[-1]"></div>
 </section>
