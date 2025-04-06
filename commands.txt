@@ -2,6 +2,9 @@ npm init -y
 npm i express cors dotenv mysql2 nodemon sequelize
 npm i -g nodemon
 
+git pull origin main --rebase
+git push
+
 ALTER TABLE rent_appartments DROP FOREIGN KEY rent_appartments_ibfk_1
 
 netstat -ano | findstr :4000
