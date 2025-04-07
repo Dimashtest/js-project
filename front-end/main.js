@@ -339,3 +339,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// блок seacrhForm
+document.getElementById('toggleSearch').addEventListener('click', function() {
+    const infoBlock = document.getElementById('infoBlock');
+    infoBlock.classList.toggle('translate-y-0');
+    infoBlock.classList.toggle('opacity-0'); 
+    infoBlock.classList.toggle('opacity-100');
+
+    arrowIcon.classList.toggle('rotate-180');
+});
+
+// блок sityBlock
+const toggleButton = document.getElementById('toggleSearch');
+const sityBlock = document.getElementById('filterBlockInner');
+const arrowIcon = document.getElementById('arrowIcon');
+
+toggleButton.addEventListener('click', () => {
+    // плавный отступ
+    filterBlock.classList.toggle('mt-[65px]');
+    filterBlock.classList.toggle('mt-[500px]');
+
+    // Поворот стрелки на 180
+    arrowIcon.classList.toggle('fa-arrow-down');
+    arrowIcon.classList.toggle('fa-arrow-up');
+    arrowIcon.classList.toggle('rotate-180');
+});
